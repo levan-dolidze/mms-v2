@@ -1,8 +1,10 @@
 {
   "addNewProductDB": [
     {
- 
+      "productCode": "45",
+      "productName": "454",
+      "productUnitPrice": "545",
+      "id": 1
     }
   ]
-
 }

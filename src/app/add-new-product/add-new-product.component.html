@@ -6,37 +6,38 @@
             <mat-icon (click)="viewMode='hideProductForm'" class="closeFormWindow">
                 keyboard_arrow_left</mat-icon>
 
-            <h4 class="title">Add New Product
-            </h4>
+            <h5 class="title">Add New Product
+            </h5>
 
-            <form>
+            <form class='form' (ngSubmit)="addNewProduct()" [formGroup]="newProductForm">
                 <div>
                     <mat-form-field appearance="fill">
                         <mat-label>product code</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="productCode">
                     </mat-form-field>
                 </div>
                 <div>
                     <mat-form-field appearance="fill">
-
                         <mat-label>product name</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="productName">
                     </mat-form-field>
                 </div>
 
                 <div>
                     <mat-form-field appearance="fill">
                         <mat-label>product unit price</mat-label>
-                        <input matInput>
+                        <input matInput formControlName="productUnitPrice">
                     </mat-form-field>
                 </div>
-                <button class="addBtn" mat-raised-button color="primary">Add Product</button>
+                <!-- ღილაკის დისეიბლი -->
+                <!-- [disabled]='newProductForm.invalid'  -->
+                <button   class="addBtn" mat-raised-button color="primary">Add Product</button>
 
             </form>
         </div>
 
 
-        <div class="TruncatedRegistrForm" *ngSwitchCase="'hideProductForm'">
+        <div class="TruncatedForm" *ngSwitchCase="'hideProductForm'">
             <mat-icon class="openFormWindow" (click)="viewMode='showProductForm'"> keyboard_arrow_right</mat-icon>
         </div>
 
@@ -45,8 +46,8 @@
 
 
 
-    <div class="productList">
-
+    <div class="listDiv">
+787878
 
     </div>
 

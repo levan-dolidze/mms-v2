@@ -1,1 +1,85 @@
-<p>sales works!</p>
+<div class="mainContainer">
+
+    <div class="registracionForm" [ngSwitch]='viewMode'>
+
+        <div class="formDiv" *ngSwitchCase="'showProductForm'">
+            <mat-icon (click)="viewMode='hideProductForm'" class="closeFormWindow">
+                keyboard_arrow_left</mat-icon>
+
+            <h5 class="title">Add Your Sales
+            </h5>
+
+            <form class="form">
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Distributor Id</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Choose a Sale date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+                </div>
+
+           
+               <span class="productNameSpan" >
+            <mat-form-field appearance="fill">
+                <mat-label>Product Name</mat-label>
+                <mat-select >
+                  <mat-option >
+              
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+         
+            
+            <mat-form-field appearance="fill">
+                <mat-label>Code</mat-label>
+                <mat-select >
+                  <mat-option >
+              
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </span>
+       
+
+                <div>
+                    <mat-form-field appearance="fill">
+                    <mat-label>Quantity</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>unit price</mat-label>
+                        <input matInput>
+                    </mat-form-field>
+                </div>
+                <button type="button" class="addBtn" mat-raised-button color="primary">Add Sales</button>
+
+            </form>
+        </div>
+
+
+        <div class="TruncatedForm" *ngSwitchCase="'hideProductForm'">
+            <mat-icon class="openFormWindow" (click)="viewMode='showProductForm'"> keyboard_arrow_right</mat-icon>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="listDiv">
+
+
+    </div>
+
+</div>
