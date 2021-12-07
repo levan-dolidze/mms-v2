@@ -15,5 +15,9 @@ export class HttpServicesService {
 
   addNewProductPost(product: AddNewProductModule): Observable<Array<AddNewProductModule>> {
     return this.http.post<Array<AddNewProductModule>>(this.urlAddNewProductDB, product);
-  }
-}
+  };
+
+  getProducts(): Observable<Array<AddNewProductModule>> {
+    return this.http.get<Array<AddNewProductModule>>(this.urlAddNewProductDB);
+  };
+};

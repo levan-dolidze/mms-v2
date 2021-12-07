@@ -1,3 +1,4 @@
+import { AddNewProductModule } from './add-new-product.module';
 import { HttpServicesService } from './../services/http-services.service';
 import { newProductsModel } from './../models/newProductsModel';
 import { Component, OnDestroy, OnInit } from '@angular/core';
@@ -13,11 +14,14 @@ export class AddNewProductComponent implements OnInit, OnDestroy {
   viewMode = "showProductForm";
   newProductForm: FormGroup;
   newProduct: Array<newProductsModel> = [];
+  products: Array<AddNewProductModule> = [];
+  productsDist: Subscription;
   newProductDist: Subscription;
   constructor(private httpservice: HttpServicesService) { }
 
   ngOnInit(): void {
     this.createFormInstance();
+    this.returnProducts();
   }
 
 
@@ -47,13 +51,24 @@ export class AddNewProductComponent implements OnInit, OnDestroy {
   addNewProductInDB(newProduct: newProductsModel) {
     this.newProductDist = this.httpservice.addNewProductPost(newProduct).subscribe((response) => {
       alert('product added');
-    })
-  }
+    });
+  };
 
+  returnProducts() {
+    this.productsDist = this.httpservice.getProducts().subscribe((response) => {
+      this.products = response
+      this.returnProductsForView(this.products)
+    });
+  };
 
+  returnProductsForView(products: any) {
+    return products
+  };
 
   ngOnDestroy() {
     (this.newProductDist) ? this.newProductDist.unsubscribe() : false;
+    (this.productsDist) ? this.productsDist.unsubscribe() : false;
+   
   };
 
 }

@@ -1,10 +1,28 @@
 {
   "addNewProductDB": [
     {
-      "productCode": "45",
-      "productName": "454",
-      "productUnitPrice": "545",
+      "productCode": "005",
+      "productName": "პური",
+      "productUnitPrice": "1",
       "id": 1
+    },
+    {
+      "productCode": "002",
+      "productName": "ბანანი",
+      "productUnitPrice": "5",
+      "id": 2
+    },
+    {
+      "productCode": "006",
+      "productName": "ალუჩა",
+      "productUnitPrice": "10",
+      "id": 3
+    },
+    {
+      "productCode": "4",
+      "productName": "კარაქი",
+      "productUnitPrice": "15",
+      "id": 4
     }
   ]
 }

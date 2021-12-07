@@ -31,7 +31,7 @@
                 </div>
                 <!-- ღილაკის დისეიბლი -->
                 <!-- [disabled]='newProductForm.invalid'  -->
-                <button   class="addBtn" mat-raised-button color="primary">Add Product</button>
+                <button class="addBtn" mat-raised-button color="primary">Add Product</button>
 
             </form>
         </div>
@@ -46,9 +46,20 @@
 
 
 
-    <div class="listDiv">
-787878
+    <div *ngIf='returnProductsForView(products)' class="listDiv">
+        <div class="productsDiv" *ngFor='let product of returnProductsForView(products)'>
+            <div class="yearsFounded"><span class="innerSpan"><h6 class="innerTitle">ID</h6><h4  class="innerText">{{product.id}}</h4></span></div>
+            <div class="employees"><span class="innerSpan"><h6 class="innerTitle">Product Name</h6><h4 class="innerText">{{product.productName}}</h4></span></div>
+            <div class="endWorkTime"><span class="innerSpan"><h6 class="innerTitle">Product Code</h6><h4 class="innerText">{{product.productCode}}</h4></span></div>
+            <div class="emailPrevented"><span class="innerSpan"><h6 class="innerTitle">Unit Price</h6><h4 class="innerText">{{product.productUnitPrice}}</h4></span></div>
+
+
+        </div>
 
     </div>
+
+
+
+
 
 </div>
