@@ -50,6 +50,7 @@ export class AddNewProductComponent implements OnInit, OnDestroy {
 
   addNewProductInDB(newProduct: newProductsModel) {
     this.newProductDist = this.httpservice.addNewProductPost(newProduct).subscribe((response) => {
+      this.returnProducts();
       alert('product added');
     });
   };
@@ -68,7 +69,7 @@ export class AddNewProductComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     (this.newProductDist) ? this.newProductDist.unsubscribe() : false;
     (this.productsDist) ? this.productsDist.unsubscribe() : false;
-   
+
   };
 
 }

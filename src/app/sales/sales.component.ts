@@ -1,3 +1,4 @@
+import { FormGroup, FormControl, AbstractFormGroupDirective } from '@angular/forms';
 import { salesModel } from './../models/salesModel';
 import { Subscription } from 'rxjs';
 import { AddNewProductModule } from './../add-new-product/add-new-product.module';
@@ -11,21 +12,97 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 })
 export class SalesComponent implements OnInit, OnDestroy {
   viewMode = "showProductForm";
+  viewModeSearch = "showSearchForm"
   productNamesAndCodes: Array<AddNewProductModule> = [];
   soldProducts: Array<salesModel> = [];
   soldProductDist: Subscription;
   productNameAndCodeDist: Subscription;
+  soldProductForm: FormGroup;
+  searchForm: FormGroup;
+  nameInput: string;
+  codeInput: string;
+  notData: boolean = true;
   constructor(private httpservice: HttpServicesService) { }
 
   ngOnInit(): void {
+    this.createFormInstance();
+    this.createSearchFormInstance();
     this.returnProductNameAndCode();
+    this.returnSoldProducts();
 
 
   }
+
+  createSearchFormInstance() {
+    this.searchForm = new FormGroup({
+      productName: new FormControl(null)
+    })
+  }
+  searchItems() {
+   this.soldProductDist=  this.httpservice.getSoldProducts().subscribe((response) => {
+      const soldPro = response;
+      const filtred = soldPro.filter((item: any) => {
+        return item.soldProductName === this.searchForm.get('productName')?.value
+      });
+      (filtred.length <= 0) ? this.notData = false : this.notData = true;
+      this.soldProducts = filtred;
+    });
+  };
+
+
+  createFormInstance() {
+    this.soldProductForm = new FormGroup({
+      distributorID: new FormControl(null),
+      saleDate: new FormControl(null),
+      soldProductCode: new FormControl(null),
+      soldProductName: new FormControl(null),
+      soldProductQuantity: new FormControl(null),
+      soldProductUnitPrice: new FormControl(null),
+      soldProductTotalPrice: new FormControl(null),
+    })
+
+
+  }
+  inputName(input: any) {
+    this.nameInput = input.value;
+
+  };
+  inputCode(input: any) {
+    this.codeInput = input.value;
+  };
+  addSoldProduct() {
+
+    const newSoldProduct: salesModel = {
+      distributorID: this.soldProductForm.get('distributorID')?.value,
+      saleDate: this.soldProductForm.get('saleDate')?.value,
+      soldProductCode: this.codeInput,
+      soldProductName: this.nameInput,
+      soldProductQuantity: this.soldProductForm.get('soldProductQuantity')?.value,
+      soldProductUnitPrice: this.soldProductForm.get('soldProductUnitPrice')?.value,
+      soldProductTotalPrice: this.soldProductForm.get('soldProductUnitPrice')?.value * this.soldProductForm.get('soldProductQuantity')?.value,
+
+    };
+    this.addSoldProductPost(newSoldProduct);
+
+  };
+
+  addSoldProductPost(newSoldProduct: any) {
+    this.soldProductDist = this.httpservice.addSoldProductPost(newSoldProduct).subscribe((response) => {
+      alert('sold product added');
+      this.returnSoldProducts();
+
+    });
+  };
+  returnSoldProducts() {
+    this.httpservice.getSoldProducts().subscribe((response) => {
+      this.soldProducts = response
+    })
+  }
+
   returnProductNameAndCode() {
     this.productNameAndCodeDist = this.httpservice.getProducts().subscribe((response) => {
       this.productNamesAndCodes = response;
-     
+
     });
   };
 
@@ -58,11 +135,11 @@ export class SalesComponent implements OnInit, OnDestroy {
       }
     })
     return sortedProductCodeLists;
-  }
+  };
 
   returnSortedProductCodeList(productNamesAndCodes: Array<any>) {
     return this.sortProductCode(productNamesAndCodes)
-  }
+  };
 
   returnSortedProductNameList(productNamesAndCodes: Array<any>) {
 
@@ -70,10 +147,11 @@ export class SalesComponent implements OnInit, OnDestroy {
   };
 
   returnSoldProductList(soldProducts: any) {
-    return soldProducts
-  }
+    return soldProducts;
+  };
   ngOnDestroy() {
     (this.productNameAndCodeDist) ? this.productNameAndCodeDist.unsubscribe() : false;
     (this.soldProductDist) ? this.soldProductDist.unsubscribe() : false;
-  }
+
+  };
 };

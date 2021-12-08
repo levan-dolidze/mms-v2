@@ -1,20 +1,27 @@
 .navbarContainer{
     width: 100%;
+    box-shadow: 0 3px 15px rgba(78, 76, 76, 0.23);
+    position: sticky;
+    z-index: 1;
+    top: 0px
 }
 .routerLinksContainer{
-    background-color: rgb(22, 74, 189);
+    background-color: white;
     padding: 30px;
 }
 a{
     padding: 5px;
     text-decoration: none;
-    color: white;
+    color: black;
     border-radius: 5px;
     margin-left: 20px;
+    
+}
+a:hover{
+    text-decoration: underline;
 }
 .router-link-active{
-    background-color: rgb(15, 118, 187);
-    padding: 10px;
+    text-decoration: underline;
 }
 .signUp{
     float:right;

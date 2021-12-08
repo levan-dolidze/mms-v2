@@ -1,28 +1,60 @@
 {
   "addNewProductDB": [
     {
-      "productCode": "005",
+      "productCode": "1",
       "productName": "პური",
       "productUnitPrice": "1",
       "id": 1
     },
     {
-      "productCode": "002",
-      "productName": "ბანანი",
+      "productCode": "2",
+      "productName": "კარაქი",
       "productUnitPrice": "5",
       "id": 2
     },
     {
-      "productCode": "006",
-      "productName": "ალუჩა",
+      "productCode": "3",
+      "productName": "სიგარეტი",
       "productUnitPrice": "10",
       "id": 3
     },
     {
       "productCode": "4",
-      "productName": "კარაქი",
-      "productUnitPrice": "15",
+      "productName": "ლუდი",
+      "productUnitPrice": "8",
       "id": 4
+    }
+  ],
+  "soldProductsDB": [
+    {
+      "distributorID": "78",
+      "saleDate": "2021-12-06T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "ლუდი",
+      "soldProductQuantity": "454",
+      "soldProductUnitPrice": "9",
+      "soldProductTotalPrice": 4086,
+      "id": 1
+    },
+    {
+      "distributorID": "5",
+      "saleDate": "2021-12-05T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "ლუდი",
+      "soldProductQuantity": "5",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 25,
+      "id": 2
+    },
+    {
+      "distributorID": "3",
+      "saleDate": "2021-12-04T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "პური",
+      "soldProductQuantity": "3",
+      "soldProductUnitPrice": "1",
+      "soldProductTotalPrice": 3,
+      "id": 3
     }
   ]
 }

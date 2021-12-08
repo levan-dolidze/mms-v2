@@ -48,10 +48,22 @@
 
     <div *ngIf='returnProductsForView(products)' class="listDiv">
         <div class="productsDiv" *ngFor='let product of returnProductsForView(products)'>
-            <div class="yearsFounded"><span class="innerSpan"><h6 class="innerTitle">ID</h6><h4  class="innerText">{{product.id}}</h4></span></div>
-            <div class="employees"><span class="innerSpan"><h6 class="innerTitle">Product Name</h6><h4 class="innerText">{{product.productName}}</h4></span></div>
-            <div class="endWorkTime"><span class="innerSpan"><h6 class="innerTitle">Product Code</h6><h4 class="innerText">{{product.productCode}}</h4></span></div>
-            <div class="emailPrevented"><span class="innerSpan"><h6 class="innerTitle">Unit Price</h6><h4 class="innerText">{{product.productUnitPrice}}</h4></span></div>
+            <div><span>
+                    <h6 class="innerTitle">ID</h6>
+                    <h4 class="innerText">{{product.id}}</h4>
+                </span></div>
+            <div><span>
+                    <h6 class="innerTitle">Product Name</h6>
+                    <h4 class="innerText">{{product.productName}}</h4>
+                </span></div>
+            <div><span>
+                    <h6 class="innerTitle">Product Code</h6>
+                    <h4 class="innerText">{{product.productCode}}</h4>
+                </span></div>
+            <div><span>
+                    <h6 class="innerTitle">Unit Price</h6>
+                    <h4 class="innerText">{{product.productUnitPrice}}</h4>
+                </span></div>
 
 
         </div>
