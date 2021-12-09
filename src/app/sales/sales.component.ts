@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { FormGroup, FormControl, AbstractFormGroupDirective } from '@angular/forms';
 import { salesModel } from './../models/salesModel';
 import { Subscription } from 'rxjs';
@@ -22,7 +23,7 @@ export class SalesComponent implements OnInit, OnDestroy {
   nameInput: string;
   codeInput: string;
   notData: boolean = true;
-  constructor(private httpservice: HttpServicesService) { }
+  constructor(private httpservice: HttpServicesService, private pipe: DatePipe) { }
 
   ngOnInit(): void {
     this.createFormInstance();
@@ -35,19 +36,30 @@ export class SalesComponent implements OnInit, OnDestroy {
 
   createSearchFormInstance() {
     this.searchForm = new FormGroup({
-      productName: new FormControl(null)
+      productName: new FormControl(null),
+      salesDate: new FormControl(null)
     })
   }
   searchItems() {
-   this.soldProductDist=  this.httpservice.getSoldProducts().subscribe((response) => {
-      const soldPro = response;
-      const filtred = soldPro.filter((item: any) => {
-        return item.soldProductName === this.searchForm.get('productName')?.value
+    this.soldProductDist = this.httpservice.getSoldProducts().subscribe((response) => {
+      const soldProducts = response;
+      const productName = this.searchForm.get('productName')?.value;
+      const productSaleDate = this.searchForm.get('salesDate')?.value;
+
+      const filtredByProductName = soldProducts.filter((item: any) => {
+        const newDate = new Date(item.saleDate);
+        const newConvertedFromData = this.pipe.transform(newDate, 'yyyy-MM-dd')
+        const newConvetedInput = this.pipe.transform(productSaleDate, 'yyyy-MM-dd')
+
+        return newConvertedFromData === newConvetedInput || item.soldProductName === productName;
       });
-      (filtred.length <= 0) ? this.notData = false : this.notData = true;
-      this.soldProducts = filtred;
+      this.notData = (filtredByProductName.length <= 0) ? false : true;
+      this.soldProducts = filtredByProductName;
     });
   };
+
+
+
 
 
   createFormInstance() {
@@ -155,3 +167,4 @@ export class SalesComponent implements OnInit, OnDestroy {
 
   };
 };
+
