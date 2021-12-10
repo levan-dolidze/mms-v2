@@ -1,1 +1,126 @@
-<p>sign-up works!</p>
+<div class="mainContainer">
+    <div class="signUpForm">
+
+
+        <form (ngSubmit)="signUp()" [formGroup]="signUpForm">
+            <div>
+
+
+                <input type="text" class="form-control" placeholder="Name" formControlName="name">
+            </div>
+            <div>
+                <input type="text" class="form-control" placeholder="Surename" formControlName="sureName">
+            </div>
+
+            <div>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Birthday</mat-label>
+                    <input formControlName="birthDay" matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+            <div>
+                gender
+                <mat-radio-group aria-label="Select an option" formControlName="gender">
+                    <mat-radio-button value="1">Male</mat-radio-button>
+                    <mat-radio-button value="2">Female</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <input type="file">
+            </div>
+            <div>
+                doc type
+                <mat-radio-group aria-label="Select an option" formControlName="docType">
+                    <mat-radio-button value="1">ID Card</mat-radio-button>
+                    <mat-radio-button value="2">Passport</mat-radio-button>
+                </mat-radio-group>
+            </div>
+
+            <div>
+                <input type="text" class="form-control" placeholder="Doc Series" formControlName="docSeries">
+            </div>
+            <div>
+                <input type="text" class="form-control" placeholder="Doc NO" formControlName="docNO">
+            </div>
+
+            <div>
+
+                <mat-form-field appearance="fill" class="example-form-field">
+                    <mat-label>Enter Doc Date of Expiry</mat-label>
+                    <mat-date-range-input [rangePicker]="rangePicker">
+                        <input matStartDate placeholder="Start date" formControlName="docDateOfIssue">
+                        <input matEndDate placeholder="End date" formControlName="docDateOfExpiry">
+                    </mat-date-range-input>
+                    <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+                    <mat-date-range-picker #rangePicker>
+                        <mat-date-range-picker-actions>
+                            <button mat-button matDateRangePickerCancel>Cancel</button>
+                            <button mat-raised-button color="primary" matDateRangePickerApply>Apply</button>
+                        </mat-date-range-picker-actions>
+                    </mat-date-range-picker>
+                </mat-form-field>
+            </div>
+
+            <div>
+                <input type="text" class="form-control" placeholder="personal NO" formControlName="personalNo">
+            </div>
+            <div>
+                <input type="text" class="form-control" placeholder="Issuing Authority"
+                    formControlName="issuingAuthority">
+            </div>
+
+            <div>
+                <input type="text" class="form-control" placeholder="contactType" formArrayName="contactType">
+            </div>
+
+
+
+
+            <div>
+                Address Type:
+                <mat-radio-group aria-label="Select an option" formControlName="addressType">
+                    <mat-radio-button value="1">Actual Address</mat-radio-button>
+                    <mat-radio-button value="2">Legal Address</mat-radio-button>
+                </mat-radio-group>
+            </div>
+            <div>
+                <input type="text" class="form-control" placeholder="Address" formControlName="address">
+            </div>
+
+            <div>
+                <h6>Do you have a recommender?</h6>
+
+                <mat-checkbox  (change)="showIdentity($event)"  formControlName="hasRecommender">Yes</mat-checkbox>
+
+
+            </div>
+
+       
+                <div *ngIf="isRecommenderShow">
+                    <mat-form-field  appearance="fill">
+                        <mat-label>choose Recommender</mat-label>
+                        <mat-select >
+                            <mat-option >
+                                
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                </div>
+
+
+         <div>
+            <button class="signUpBtn" mat-raised-button color="primary">Sign Up</button>
+         </div>
+          
+
+        </form>
+
+    </div>
+
+
+</div>

@@ -12,7 +12,7 @@
             <form (ngSubmit)="addSoldProduct()" class="form" [formGroup]="soldProductForm">
                 <div>
                     <mat-form-field appearance="fill">
-                        <mat-label>Distributor Id</mat-label>
+                        <mat-label>Distributor ID</mat-label>
                         <input matInput formControlName="distributorID">
                     </mat-form-field>
                 </div>
@@ -86,38 +86,38 @@
         <div class="productsDiv" *ngFor='let products of returnSoldProductList(soldProducts)'>
             <div><span>
                     <h6 class="innerTitle">ID</h6>
-                    <h5 class="innerText">{{products.id}}</h5>
+                    <h6 class="innerText">{{products.id}}</h6>
                 </span></div>
             <div><span>
                     <h6 class="innerTitle">Distr ID</h6>
-                    <h5 class="innerText">{{products.distributorID}}</h5>
+                    <h6 class="innerText">{{products.distributorID}}</h6>
                 </span></div>
             <div><span>
                     <h6 class="innerTitle">Sale Date</h6>
-                    <h5 class="innerText">{{products.saleDate|date}}</h5>
+                    <h6 class="innerText">{{products.saleDate|date}}</h6>
                 </span></div>
 
             <div> <span>
                     <h6 class="innerTitle">Product Name</h6>
-                    <h5 class="innerText">{{products.soldProductName}}</h5>
+                    <h6 class="innerText">{{products.soldProductName}}</h6>
                 </span></div>
             <div> <span>
                     <h6 class="innerTitle">Product Code</h6>
-                    <h5 class="innerText">{{products.soldProductCode}}</h5>
+                    <h6 class="innerText">{{products.soldProductCode}}</h6>
                 </span></div>
             <div> <span>
                     <h6 class="innerTitle">QTY</h6>
-                    <h5 class="innerText">{{products.soldProductQuantity}}</h5>
+                    <h6 class="innerText">{{products.soldProductQuantity}}</h6>
                 </span></div>
             <div> <span>
 
                     <h6 class="innerTitle">Unit Price</h6>
-                    <h5 class="innerText">{{products.soldProductUnitPrice}}</h5>
+                    <h6 class="innerText">{{products.soldProductUnitPrice}}</h6>
                 </span></div>
 
             <div> <span>
                     <h6 class="innerTitle">Total Price</h6>
-                    <h5 class="innerText">{{products.soldProductTotalPrice}}</h5>
+                    <h6 class="innerText">{{products.soldProductTotalPrice}}</h6>
                 </span></div>
 
 
@@ -136,16 +136,24 @@
 
             <h5 class="title">Search
             </h5>
-            <form (ngSubmit)="searchItems()"  [formGroup]="searchForm">
+            <form class="form" (ngSubmit)="searchItems()" [formGroup]="searchForm">
+                <div >
+                    <input type="text" class="form-control" formControlName="distributorID"
+                        placeholder="Distributor ID">
+                </div>
+                <div >
+                    <input type="text" class="form-control" formControlName="productName" placeholder="Product Name">
+                </div>
 
-                <input type="text" class="form-control" formControlName="productName">
 
+                <div>
                 <mat-form-field appearance="fill">
                     <mat-label>Choose A Date</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="salesDate" >
+                    <input matInput [matDatepicker]="picker" formControlName="salesDate">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
+                </div>
                 <button class="addBtn" mat-raised-button color="primary">Search</button>
 
 

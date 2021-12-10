@@ -9,7 +9,9 @@
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
 }
-
+.searchDiv div{
+margin-bottom: 20px;
+}
 .formDiv{
   text-align: center;
   padding: 30px;
@@ -22,6 +24,7 @@
 .mat-form-field,.addBtn{
     width: 100%;
 }
+
 .closeFormWindow,.openFormWindow{
     float:right;
     cursor: pointer;
@@ -117,4 +120,18 @@ align-items: center;
 .productNameSpan{
     display: flex;
     width: 50%;
+}
+
+/* signup */
+.signUpForm{
+    width: 80%;
+    height: 100%;
+    border-radius: 5px;
+    margin: 0 auto;
+    background-color: white;
+    margin-top: 20px;
+
+}
+.signUpBtn{
+    width: 100%;
 }

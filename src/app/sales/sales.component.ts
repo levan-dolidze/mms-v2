@@ -37,7 +37,8 @@ export class SalesComponent implements OnInit, OnDestroy {
   createSearchFormInstance() {
     this.searchForm = new FormGroup({
       productName: new FormControl(null),
-      salesDate: new FormControl(null)
+      salesDate: new FormControl(null),
+      distributorID: new FormControl(null)
     })
   }
   searchItems() {
@@ -45,13 +46,15 @@ export class SalesComponent implements OnInit, OnDestroy {
       const soldProducts = response;
       const productName = this.searchForm.get('productName')?.value;
       const productSaleDate = this.searchForm.get('salesDate')?.value;
+      const distributorId = this.searchForm.get('distributorID')?.value;
 
       const filtredByProductName = soldProducts.filter((item: any) => {
         const newDate = new Date(item.saleDate);
         const newConvertedFromData = this.pipe.transform(newDate, 'yyyy-MM-dd')
         const newConvetedInput = this.pipe.transform(productSaleDate, 'yyyy-MM-dd')
-
-        return newConvertedFromData === newConvetedInput || item.soldProductName === productName;
+console.log(item.distributorID)
+console.log(distributorId)
+        return newConvertedFromData === newConvetedInput || item.soldProductName === productName || item.distributorID ===distributorId;
       });
       this.notData = (filtredByProductName.length <= 0) ? false : true;
       this.soldProducts = filtredByProductName;

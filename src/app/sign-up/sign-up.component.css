@@ -1,0 +1,12 @@
+form{
+    display: flex;
+    justify-content: center;
+    margin:20px;
+    flex-wrap: wrap;
+  
+}
+form div{
+width: 40%;
+margin: 10px;
+
+}
