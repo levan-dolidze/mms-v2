@@ -1,3 +1,4 @@
+import { signUpModel } from './../models/signUpModel';
 import { salesModel } from './../models/salesModel';
 
 import { environment } from './../../environments/environment';
@@ -12,6 +13,7 @@ import { Observable } from 'rxjs';
 export class HttpServicesService {
   urlAddNewProductDB = environment.addNewProductDB;
   urlSoldProductDB = environment.soldProductsDB;
+  urlDistributorListDB = environment.distributorListDB;
   constructor(private http: HttpClient) { }
 
 
@@ -28,4 +30,8 @@ export class HttpServicesService {
   getProducts(): Observable<Array<AddNewProductModule>> {
     return this.http.get<Array<AddNewProductModule>>(this.urlAddNewProductDB);
   };
+
+  addDistributor(newDistributor: signUpModel): Observable<Array<signUpModel>> {
+    return this.http.post<Array<signUpModel>>(this.urlDistributorListDB, newDistributor);
+  }
 };

@@ -1,24 +1,27 @@
 export class signUpModel {
-    distributorID: number | string;
+    distributorID?: number | string;
     name: string;
     sureName: string;
-    birthDay: string | object;
+    birthDay: string ;
     gender: string;
     image: string;
     docType: string;
     docSeries: string;
     docNO: string;
-    docDateOfIssue: string | object;
-    docDateOfExpiry: string | object;
+    docDateOfIssue: string ;
+    docDateOfExpiry: string ;
     personalNo: string;
     issuingAuthority: string;
-    contactType: Array<string>;
+    phone: string;
+    mobile: string
+    email: string;
+    fax: string;
     addressType: boolean;
     address: string;
 
 
 
-    constructor(distributorID: number | string, name: string, sureName: string, birthDay: string | object, gender: string, image: string, docType: string, docSeries: string, docNO: string, docDateOfIssue: string | object, docDateOfExpiry: string | object, personalNo: string, issuingAuthority: string, contactType: Array<string>, addressType: boolean, address: string) {
+    constructor(distributorID: number | string, name: string, sureName: string, birthDay: string, gender: string, image: string, docType: string, docSeries: string, docNO: string, docDateOfIssue: string , docDateOfExpiry: string , personalNo: string, issuingAuthority: string, phone: string, mobile: string, email: string, fax: string, addressType: boolean, address: string) {
 
         this.distributorID = distributorID;
         this.name = name;
@@ -33,7 +36,10 @@ export class signUpModel {
         this.docDateOfExpiry = docDateOfExpiry;
         this.personalNo = personalNo;
         this.issuingAuthority = issuingAuthority;
-        this.contactType = contactType;
+        this.phone = phone;
+        this.mobile = mobile
+        this.email = email;
+        this.fax = fax;
         this.addressType = addressType;
         this.address = address
 

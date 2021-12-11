@@ -1,58 +1,73 @@
 <div class="mainContainer">
     <div class="signUpForm">
 
-
         <form (ngSubmit)="signUp()" [formGroup]="signUpForm">
-            <div>
+
+            <h5>Personal Information</h5>
+            <label for="name">First Name:
+                <input type="text" id='name' class="form-control" placeholder="Name" formControlName="name">
+            </label>
 
 
-                <input type="text" class="form-control" placeholder="Name" formControlName="name">
-            </div>
-            <div>
-                <input type="text" class="form-control" placeholder="Surename" formControlName="sureName">
-            </div>
+            <label for="sureName">Surename:
+                <input type="text" id='sureName' class="form-control" placeholder="Surename" formControlName="sureName">
+            </label>
 
-            <div>
+
+            <label for="birthDay">Birthday:
 
                 <mat-form-field appearance="fill">
                     <mat-label>Birthday</mat-label>
-                    <input formControlName="birthDay" matInput [matDatepicker]="picker">
+                    <input formControlName="birthDay" matInput [matDatepicker]="picker" id="birthDay">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-            </div>
+            </label>
 
-            <div>
-                gender
-                <mat-radio-group aria-label="Select an option" formControlName="gender">
-                    <mat-radio-button value="1">Male</mat-radio-button>
-                    <mat-radio-button value="2">Female</mat-radio-button>
+            <label for="gender">Gender:
+                <mat-radio-group aria-label="Select an option" formControlName="gender" id="gender">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
                 </mat-radio-group>
-            </div>
-            <div>
-                <input type="file">
-            </div>
-            <div>
-                doc type
+            </label>
+
+
+
+            <label for="foto">Foto:
+                <input id="foto" type="file">
+            </label>
+
+
+
+            <h5>Identity Information:</h5>
+
+            <label for=""> Doc Type:
                 <mat-radio-group aria-label="Select an option" formControlName="docType">
-                    <mat-radio-button value="1">ID Card</mat-radio-button>
-                    <mat-radio-button value="2">Passport</mat-radio-button>
+                    <mat-radio-button value="IDCard">ID Card</mat-radio-button>
+                    <mat-radio-button value="Passport">Passport</mat-radio-button>
                 </mat-radio-group>
-            </div>
+            </label>
 
-            <div>
-                <input type="text" class="form-control" placeholder="Doc Series" formControlName="docSeries">
-            </div>
-            <div>
-                <input type="text" class="form-control" placeholder="Doc NO" formControlName="docNO">
-            </div>
+            <label for="docSeries">Doc Series:
+                <input id="docSeries" type="text" class="form-control" placeholder="Doc Series"
+                    formControlName="docSeries">
 
-            <div>
+            </label>
+
+
+            <label for="docNO"> Doc NO:
+                <input type="text" class="form-control" id='docNO' placeholder="Doc NO" formControlName="docNO">
+
+            </label>
+
+
+            <label for="docDateOfIssue"> Doc Date of Expiry:
 
                 <mat-form-field appearance="fill" class="example-form-field">
                     <mat-label>Enter Doc Date of Expiry</mat-label>
                     <mat-date-range-input [rangePicker]="rangePicker">
-                        <input matStartDate placeholder="Start date" formControlName="docDateOfIssue">
+                        <input matStartDate placeholder="Start date" formControlName="docDateOfIssue"
+                            id="docDateOfIssue">
                         <input matEndDate placeholder="End date" formControlName="docDateOfExpiry">
                     </mat-date-range-input>
                     <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
@@ -63,60 +78,82 @@
                         </mat-date-range-picker-actions>
                     </mat-date-range-picker>
                 </mat-form-field>
-            </div>
 
-            <div>
-                <input type="text" class="form-control" placeholder="personal NO" formControlName="personalNo">
-            </div>
-            <div>
-                <input type="text" class="form-control" placeholder="Issuing Authority"
+            </label>
+
+
+            <label for="personalNo">Personal NO:
+                <input type="text" id="personalNo" class="form-control" placeholder="personal NO"
+                    formControlName="personalNo">
+            </label>
+
+
+            <label for="issuingAuthority">Issuing Authority:
+                <input type="text" id="issuingAuthority" class="form-control" placeholder="Issuing Authority"
                     formControlName="issuingAuthority">
+            </label>
+
+
+            <h5>Contact information</h5>
+            <div class="contactTypes">
+
+
+                <mat-checkbox (change)="showPhone()">Phone</mat-checkbox>
+                <label *ngIf="isHiddenPhone" for="phone">Phone
+                    <input type="text" id="phone" class="form-control" formControlName="phone" placeholder="Phone">
+                </label>
+
+                <mat-checkbox (change)="showMobile()">Mobile Phone</mat-checkbox>
+                <label *ngIf="isHiddenMobile" for="mobile">Mobile
+                    <input id="mobile" type="text" class="form-control" formControlName="mobile" placeholder="Mobile">
+                </label>
+
+                <mat-checkbox (change)="showEmail()">Email</mat-checkbox>
+                <label *ngIf="isHiddenEmail" for="email">Email
+                    <input id="email" type="email" class="form-control" formControlName="email" placeholder="Email">
+                </label>
+
+                <mat-checkbox (change)="showFax()">Fax</mat-checkbox>
+                <label *ngIf="isHiddenFax" for="fax">Fax
+                    <input type="text" formControlName="fax" class="form-control" formControlName="fax"
+                        placeholder="Fax">
+                </label>
             </div>
 
-            <div>
-                <input type="text" class="form-control" placeholder="contactType" formArrayName="contactType">
-            </div>
+ 
 
-
-
-
-            <div>
-                Address Type:
-                <mat-radio-group aria-label="Select an option" formControlName="addressType">
-                    <mat-radio-button value="1">Actual Address</mat-radio-button>
-                    <mat-radio-button value="2">Legal Address</mat-radio-button>
+            <label for="addressType">Address Type:
+                <mat-radio-group aria-label="Select an option" id="addressType" formControlName="addressType">
+                    <mat-radio-button value="ActualAddress">Actual Address</mat-radio-button>
+                    <mat-radio-button value="LegalAddress">Legal Address</mat-radio-button>
                 </mat-radio-group>
-            </div>
-            <div>
-                <input type="text" class="form-control" placeholder="Address" formControlName="address">
-            </div>
-
-            <div>
-                <h6>Do you have a recommender?</h6>
-
-                <mat-checkbox  (change)="showIdentity($event)"  formControlName="hasRecommender">Yes</mat-checkbox>
+            </label>
 
 
-            </div>
+            <label for="address">Address:
+                <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address">
+            </label>
 
-       
-                <div *ngIf="isRecommenderShow">
-                    <mat-form-field  appearance="fill">
-                        <mat-label>choose Recommender</mat-label>
-                        <mat-select >
-                            <mat-option >
-                                
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+   
 
-                </div>
+            <label for="hasRecommender">Do Y have Recommender?
+                <mat-checkbox (change)="showIdentity()" id="hasRecommender" formControlName="hasRecommender">Yes
+                </mat-checkbox>
+            </label>
+
+            <mat-form-field appearance="fill" *ngIf="isRecommenderShow">
+                <mat-label>choose Recommender</mat-label>
+                <mat-select>
+                    <mat-option>
+
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
 
-         <div>
+
+
             <button class="signUpBtn" mat-raised-button color="primary">Sign Up</button>
-         </div>
-          
 
         </form>
 

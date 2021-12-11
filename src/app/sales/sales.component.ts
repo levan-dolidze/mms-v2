@@ -52,9 +52,8 @@ export class SalesComponent implements OnInit, OnDestroy {
         const newDate = new Date(item.saleDate);
         const newConvertedFromData = this.pipe.transform(newDate, 'yyyy-MM-dd')
         const newConvetedInput = this.pipe.transform(productSaleDate, 'yyyy-MM-dd')
-console.log(item.distributorID)
-console.log(distributorId)
-        return newConvertedFromData === newConvetedInput || item.soldProductName === productName || item.distributorID ===distributorId;
+
+        return newConvertedFromData === newConvetedInput || item.soldProductName === productName || item.distributorID === distributorId;
       });
       this.notData = (filtredByProductName.length <= 0) ? false : true;
       this.soldProducts = filtredByProductName;
