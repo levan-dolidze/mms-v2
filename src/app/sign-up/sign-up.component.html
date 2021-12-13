@@ -3,7 +3,7 @@
 
         <form (ngSubmit)="signUp()" [formGroup]="signUpForm">
 
-            <h5>Personal Information</h5>
+            <h5 class="signUpTitle">Personal Information</h5>
             <label for="name">First Name:
                 <input type="text" id='name' class="form-control" placeholder="Name" formControlName="name">
             </label>
@@ -39,7 +39,7 @@
 
 
 
-            <h5>Identity Information:</h5>
+            <h5 class="signUpTitle">Identity Information:</h5>
 
             <label for=""> Doc Type:
                 <mat-radio-group aria-label="Select an option" formControlName="docType">
@@ -94,7 +94,7 @@
             </label>
 
 
-            <h5>Contact information</h5>
+            <h5 class="signUpTitle">Contact information</h5>
             <div class="contactTypes">
 
 
@@ -120,7 +120,7 @@
                 </label>
             </div>
 
- 
+
 
             <label for="addressType">Address Type:
                 <mat-radio-group aria-label="Select an option" id="addressType" formControlName="addressType">
@@ -134,7 +134,7 @@
                 <input type="text" class="form-control" id="address" placeholder="Address" formControlName="address">
             </label>
 
-   
+
 
             <label for="hasRecommender">Do Y have Recommender?
                 <mat-checkbox (change)="showIdentity()" id="hasRecommender" formControlName="hasRecommender">Yes
@@ -143,9 +143,9 @@
 
             <mat-form-field appearance="fill" *ngIf="isRecommenderShow">
                 <mat-label>choose Recommender</mat-label>
-                <mat-select>
-                    <mat-option>
-
+                <mat-select (selectionChange)='selectedId($event)' formControlName="recomendatorPersonalNo" #recomendatorPersonalNo  >
+                    <mat-option *ngFor='let ids of returnSortedIds()'[value]='ids.id'>
+                        {{ids.id}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>

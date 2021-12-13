@@ -1,19 +1,22 @@
 import { contactType } from './../class';
 import { HttpServicesService } from './../services/http-services.service';
 import { signUpModel } from './../models/signUpModel';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.css', '../common-css.css']
 })
-export class SignUpComponent implements OnInit {
+export class SignUpComponent implements OnInit, OnDestroy {
 
   constructor(private httpservice: HttpServicesService, private contatc: contactType) { }
   signUpForm: FormGroup;
   isRecommenderShow: boolean = false;
+  distributorList: Array<signUpModel> = [];
+  distributorListDist: Subscription;
   isHiddenPhone = false;
   isHiddenMobile = false;
   isHiddenEmail = false;
@@ -24,6 +27,8 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
     this.createSignUpFormInstance();
     this.setDefaultValues();
+    this.returnDistributorList();
+    // this.filtredIdNumbers();
 
   }
 
@@ -50,15 +55,40 @@ export class SignUpComponent implements OnInit {
       issuingAuthority: new FormControl(null),
       addressType: new FormControl(null),
       address: new FormControl(null),
-      hasRecommender: new FormControl(null)
+      hasRecommender: new FormControl(null),
+      protegeIds: new FormArray([]),
+      recomendatorPersonalNo: new FormControl(null)
 
     });
   };
 
 
+
+
+
+  returnDistributorList() {
+    this.distributorListDist = this.httpservice.getDistributors().subscribe((response) => {
+      this.distributorList = response;
+    })
+  };
+  returnSortedIds() {
+    const sortedIds = this.distributorList.sort((a: any, b: any) => {
+      if (a.id > b.id) {
+        return 1
+      }
+      if (a.id < b.id) {
+        return -1
+      }
+      else {
+        return 0
+      };
+
+    });
+    return sortedIds;
+  };
   showIdentity() {
     return { identity: this.isRecommenderShow = !this.isRecommenderShow }
-  }
+  };
 
 
   showPhone() {
@@ -91,9 +121,21 @@ export class SignUpComponent implements OnInit {
     const fax = (this.isHiddenPhone) ? this.signUpForm.get('email')?.value : null
     return fax;
   };
+  selectedId(selectedIds: any) {
+    const arr = []
+
+  };
+
+  addRecommendator() {
+    let newFormcontrol = new FormControl(null);
+    newFormcontrol = this.signUpForm.get('recomendatorPersonalNo')?.value;
+    (<FormArray>this.signUpForm.get('protegeIds')).push(newFormcontrol);
+    return (this.signUpForm.get('protegeIds') as FormArray).controls
+  };
+
 
   signUp() {
- 
+    // this.addRecommendator();
     const newDistributor: signUpModel = {
       name: this.signUpForm.get('name')?.value,
       sureName: this.signUpForm.get('sureName')?.value,
@@ -113,13 +155,347 @@ export class SignUpComponent implements OnInit {
       issuingAuthority: this.signUpForm.get('issuingAuthority')?.value,
       addressType: this.signUpForm.get('addressType')?.value,
       address: this.signUpForm.get('address')?.value,
+      protegeIds: this.signUpForm.get('recomendatorPersonalNo')?.value,
+      recomendatorPersonalNo: this.signUpForm.get('recomendatorPersonalNo')?.value
 
     };
-    this.httpservice.addDistributor(newDistributor).subscribe((respinse) => {
 
+    this.distributorListDist = this.httpservice.addDistributor(newDistributor).subscribe((respinse) => {
       alert('distributor added');
+
+      this.getRegistrDistrIDnumber();
+      this.returnDistributorList();
+
     });
 
   };
 
+  // filtredIdNumbers(): any {
+  //   const filtredLength = this.distributorList.filter((item) => {
+  //     return item.protegeIds.length < 3;
+
+  //   });
+  //   this.getRecommendatorId(filtredLength);
+  // };
+  // getRecommendatorId(protegeIdArray: any) {
+  //   const maped = protegeIdArray.map((element: any) => {
+  //     return element.id;
+  //   })
+  //   this.paint = maped;
+  // }
+  getRegistrDistrIDnumber(): any {
+
+    const find = this.distributorList.find((item) => {
+      return item.id === this.signUpForm.get('recomendatorPersonalNo')?.value;
+    });
+
+    if (find) {
+
+      this.httpservice.getDistributors().subscribe((response) => {
+        this.distributorList = response;
+
+        const findId = this.distributorList.map((item) => {
+          return item.id
+        });
+        let lastId = findId.pop();
+        console.log(find)
+        find.protegeIds.push(lastId);
+        this.httpservice.editDistributorProtegeInfo(find).subscribe(() => {
+
+
+        });
+
+      });
+
+
+    }
+    else {
+      return
+    }
+
+  };
+
+
+
+  ngOnDestroy(): void {
+    this.distributorListDist.unsubscribe();
+  };
 };
+
+
+
+
+// 1+3+9+27+81=121
+
+const array2 = [
+  {
+
+    id: 10, protege: [
+      //3
+      {
+
+        id: 100, protege: [
+          //9
+          {
+            id: 1000, protege: [
+              //27
+              { id: 10000, protege: [] },
+              //81
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          },
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          },
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          }]
+      },
+
+      {
+        id: 100, protege: [
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          },
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          },
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          }]
+      },
+
+      {
+        id: 100, protege: [
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          },
+
+          {
+            id: 1000, protege: [
+
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          },
+
+          {
+            id: 1000, protege: [
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] },
+              { id: 10000, protege: [] }]
+          }]
+      }]
+  },
+
+
+  {
+    id: 20, protege: [
+      {
+        id: 200, protege: [
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          },
+
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          },
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          }]
+      },
+
+      {
+        id: 200, protege: [
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          },
+
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          },
+
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          }]
+      },
+
+      {
+        id: 200, protege: [
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          },
+
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          },
+
+          {
+            id: 2000, protege: [
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] },
+              { id: 20000, protege: [] }]
+          }]
+      }]
+  },
+  {
+    id: 30, protege: [
+
+      {
+        id: 300, protege: [
+          {
+            id: 3000, protege: [
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          },
+          {
+            id: 3000, protege: [
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          },
+          {
+            id: 3000, protege: [
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          }]
+      },
+      {
+        id: 300, protege: [
+          {
+            id: 3000, protege: [
+
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          },
+          {
+            id: 3000, protege: [
+
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          },
+          {
+            id: 3000, protege: [
+
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          }]
+      },
+      {
+        id: 300, protege: [
+          {
+            id: 3000, protege: [
+
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          },
+
+          {
+            id: 3000, protege: [
+
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          },
+
+          {
+            id: 3000, protege: [
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] },
+              { id: 30000, protege: [] }]
+          }]
+      }]
+  }
+
+];
+
+
+
+for (let index = 0; index < array2.length; index++) {
+  // console.log(array2.length)
+  // console.log(array2[index].protege)
+
+}
+
+
+const arr = [
+  { id: 0, children: [] },
+  {
+    id: 1, children: [
+      { id: 2, children: [] }, {
+        id: 3, children:
+          [{
+            id: 4, children:
+              [
+                {
+                  id: 5, children: []
+                }]
+          }
+          ]
+      }]
+  }];
+function assignDepth(arr: any, depth = 0, index = 0): any {
+  if (index > arr.length) {
+    arr[index].depth = depth
+    if (arr[index].protege.length) {
+      return assignDepth(arr[index].protege, depth + 1, 0)
+    }
+    return assignDepth(arr, depth, index + 1)
+  };
+  return;
+}
+
+assignDepth(array2);
+console.log(JSON.stringify(array2, undefined, 5))
+
+
+
+

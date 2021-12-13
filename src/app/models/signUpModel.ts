@@ -1,5 +1,5 @@
 export class signUpModel {
-    distributorID?: number | string;
+    id?: number | string;
     name: string;
     sureName: string;
     birthDay: string ;
@@ -18,12 +18,15 @@ export class signUpModel {
     fax: string;
     addressType: boolean;
     address: string;
+    protegeIds:Array<any>=[];
+    recomendatorPersonalNo:string|number;
 
 
 
-    constructor(distributorID: number | string, name: string, sureName: string, birthDay: string, gender: string, image: string, docType: string, docSeries: string, docNO: string, docDateOfIssue: string , docDateOfExpiry: string , personalNo: string, issuingAuthority: string, phone: string, mobile: string, email: string, fax: string, addressType: boolean, address: string) {
+    constructor(id: number | string, name: string, sureName: string, birthDay: string, gender: string, image: string, docType: string, docSeries: string, docNO: string, docDateOfIssue: string , docDateOfExpiry: string , personalNo: string, issuingAuthority: string, phone: string, mobile: string, email: string, fax: string, addressType: boolean, address: string,protegeIds:Array<any>,recomendatorPersonalNo:string|number
+        ) {
 
-        this.distributorID = distributorID;
+        this.id = id;
         this.name = name;
         this.sureName = sureName;
         this.birthDay = birthDay;
@@ -41,7 +44,9 @@ export class signUpModel {
         this.email = email;
         this.fax = fax;
         this.addressType = addressType;
-        this.address = address
+        this.address = address;
+        this.protegeIds=protegeIds;
+        this.recomendatorPersonalNo=recomendatorPersonalNo
 
     }
 }

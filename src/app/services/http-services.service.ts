@@ -22,16 +22,23 @@ export class HttpServicesService {
   };
   addSoldProductPost(soldProduct: salesModel): Observable<Array<salesModel>> {
     return this.http.post<Array<salesModel>>(this.urlSoldProductDB, soldProduct);
-  }
+  };
 
   getSoldProducts(): Observable<Array<salesModel>> {
     return this.http.get<Array<salesModel>>(this.urlSoldProductDB);
-  }
+  };
   getProducts(): Observable<Array<AddNewProductModule>> {
     return this.http.get<Array<AddNewProductModule>>(this.urlAddNewProductDB);
   };
 
   addDistributor(newDistributor: signUpModel): Observable<Array<signUpModel>> {
     return this.http.post<Array<signUpModel>>(this.urlDistributorListDB, newDistributor);
-  }
+  };
+  getDistributors(): Observable<Array<signUpModel>> {
+    return this.http.get<Array<signUpModel>>(this.urlDistributorListDB);
+  };
+
+  editDistributorProtegeInfo(statement: signUpModel): Observable<signUpModel> {
+    return this.http.put<signUpModel>(`${this.urlDistributorListDB}/${statement.id}`, statement);
+  };
 };
