@@ -46,7 +46,7 @@
 
 
 
-    <div *ngIf='returnProductsForView(products)' class="listDiv">
+    <div  *ngIf='returnProductsForView(products)' class="listDiv">
         <div class="productsDiv" *ngFor='let product of returnProductsForView(products)'>
             <div><span>
                     <h6 class="innerTitle">ID</h6>
@@ -68,7 +68,16 @@
 
         </div>
 
-    </div>
+
+
+
+
+        <ng-container >
+            <mat-icon  class="backPage" (click)="backFiveItems()"  [hidden]="back" >skip_previous</mat-icon>
+            <mat-icon class="nextPage" (click)="returnNextFiveItems()" [hidden]="next">skip_next</mat-icon>
+        </ng-container>
+        
+    </div >
 
 
 

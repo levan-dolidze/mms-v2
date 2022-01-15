@@ -5,7 +5,7 @@ import { environment } from './../../environments/environment';
 import { AddNewProductModule } from './../add-new-product/add-new-product.module';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -28,6 +28,7 @@ export class HttpServicesService {
     return this.http.get<Array<salesModel>>(this.urlSoldProductDB);
   };
   getProducts(): Observable<Array<AddNewProductModule>> {
+
     return this.http.get<Array<AddNewProductModule>>(this.urlAddNewProductDB);
   };
 
@@ -41,4 +42,8 @@ export class HttpServicesService {
   editDistributorProtegeInfo(statement: signUpModel): Observable<signUpModel> {
     return this.http.put<signUpModel>(`${this.urlDistributorListDB}/${statement.id}`, statement);
   };
+
+
+
+
 };

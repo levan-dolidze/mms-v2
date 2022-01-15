@@ -162,7 +162,6 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
     this.distributorListDist = this.httpservice.addDistributor(newDistributor).subscribe((respinse) => {
       alert('distributor added');
-
       this.getRegistrDistrIDnumber();
       this.returnDistributorList();
 
@@ -226,10 +225,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
 // 1+3+9+27+81=121
-
+//tree prototip
 const array2 = [
   {
-
     id: 10, protege: [
       //3
       {
@@ -306,7 +304,6 @@ const array2 = [
       }]
   },
 
-
   {
     id: 20, protege: [
       {
@@ -380,6 +377,7 @@ const array2 = [
           }]
       }]
   },
+
   {
     id: 30, protege: [
 
@@ -457,13 +455,19 @@ const array2 = [
 
 ];
 
+function parseData(data: any) {
+  let count = 0;
+  for (let index = 0; index < data.length; index++) {
+    console.log()
 
 
-for (let index = 0; index < array2.length; index++) {
-  // console.log(array2.length)
-  // console.log(array2[index].protege)
+
+  }
+
 
 }
+parseData(array2)
+
 
 
 const arr = [
@@ -484,6 +488,7 @@ const arr = [
   }];
 function assignDepth(arr: any, depth = 0, index = 0): any {
   if (index > arr.length) {
+
     arr[index].depth = depth
     if (arr[index].protege.length) {
       return assignDepth(arr[index].protege, depth + 1, 0)

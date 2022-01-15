@@ -1,86 +1,132 @@
 {
   "addNewProductDB": [
     {
-      "productCode": "1",
-      "productName": "პური",
-      "productUnitPrice": "1",
+      "productCode": "001",
+      "productName": "5",
+      "productUnitPrice": "2",
       "id": 1
     },
     {
-      "productCode": "2",
-      "productName": "კარაქი",
+      "productCode": "002",
+      "productName": "4",
       "productUnitPrice": "5",
       "id": 2
     },
     {
-      "productCode": "3",
-      "productName": "სიგარეტი",
-      "productUnitPrice": "10",
+      "productCode": "003",
+      "productName": "4",
+      "productUnitPrice": "1",
       "id": 3
     },
     {
-      "productCode": "4",
-      "productName": "ლუდი",
-      "productUnitPrice": "8",
+      "productCode": "004",
+      "productName": "4",
+      "productUnitPrice": "1",
       "id": 4
     },
     {
-      "productCode": "454",
-      "productName": "54",
-      "productUnitPrice": "54",
+      "productCode": "005",
+      "productName": "4",
+      "productUnitPrice": "1",
       "id": 5
+    },
+    {
+      "productCode": "006",
+      "productName": "4",
+      "productUnitPrice": "1",
+      "id": 6
     }
   ],
   "soldProductsDB": [
     {
-      "distributorID": "78",
-      "saleDate": "2021-12-06T20:00:00.000Z",
-      "soldProductCode": 2,
-      "soldProductName": "ლუდი",
-      "soldProductQuantity": "454",
-      "soldProductUnitPrice": "9",
-      "soldProductTotalPrice": 4086,
+      "distributorID": "001",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "ლაქი",
+      "soldProductQuantity": "10",
+      "soldProductUnitPrice": "15",
+      "soldProductTotalPrice": 150,
       "id": 1
     },
     {
-      "distributorID": "5",
-      "saleDate": "2021-12-05T20:00:00.000Z",
-      "soldProductCode": 2,
-      "soldProductName": "ლუდი",
-      "soldProductQuantity": "5",
-      "soldProductUnitPrice": "5",
-      "soldProductTotalPrice": 25,
+      "distributorID": "001",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "ლაქი",
+      "soldProductQuantity": "10",
+      "soldProductUnitPrice": "15",
+      "soldProductTotalPrice": 150,
       "id": 2
     },
     {
-      "distributorID": "3",
-      "saleDate": "2021-12-04T20:00:00.000Z",
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
       "soldProductCode": 3,
-      "soldProductName": "პური",
-      "soldProductQuantity": "3",
-      "soldProductUnitPrice": "1",
-      "soldProductTotalPrice": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
       "id": 3
     },
     {
-      "distributorID": "3",
-      "saleDate": "2021-11-30T20:00:00.000Z",
-      "soldProductCode": 2,
-      "soldProductName": "კარაქი",
-      "soldProductQuantity": "6",
-      "soldProductUnitPrice": "2",
-      "soldProductTotalPrice": 12,
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
       "id": 4
     },
     {
-      "distributorID": "3",
-      "saleDate": "2021-11-30T20:00:00.000Z",
-      "soldProductCode": 2,
-      "soldProductName": "კარაქი",
-      "soldProductQuantity": "6",
-      "soldProductUnitPrice": "2",
-      "soldProductTotalPrice": 12,
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
       "id": 5
+    },
+    {
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
+      "id": 6
+    },
+    {
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
+      "id": 7
+    },
+    {
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
+      "id": 8
+    },
+    {
+      "distributorID": "45",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 3,
+      "soldProductName": "4",
+      "soldProductQuantity": "4",
+      "soldProductUnitPrice": "5",
+      "soldProductTotalPrice": 20,
+      "id": 9
     }
   ],
   "distributorList": [
@@ -102,9 +148,79 @@
       "issuingAuthority": null,
       "addressType": "ActualAddress",
       "address": null,
-      "protegeIds": [[1,2,3],[4,5,6],[7,8,9],[10,11,12],[13,14,15]],
+      "protegeIds": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          4,
+          5,
+          6
+        ],
+        [
+          7,
+          8,
+          9
+        ],
+        [
+          10,
+          11,
+          12
+        ],
+        [
+          13,
+          14,
+          15
+        ]
+      ],
       "recomendatorPersonalNo": null,
       "id": 1
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": null,
+      "recomendatorPersonalNo": null,
+      "id": 2
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": null,
+      "recomendatorPersonalNo": null,
+      "id": 3
     }
   ]
 }

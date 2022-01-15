@@ -1,0 +1,13 @@
+.nextPage{
+    
+    cursor: pointer;
+    float: right;
+    margin:20px 30px 0px 0px
+    
+}
+.backPage{
+ 
+    cursor: pointer;
+    float: left;
+    margin:20px 0px 20px 30px
+}

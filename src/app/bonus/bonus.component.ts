@@ -1,4 +1,7 @@
+
+
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-bonus',
@@ -6,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bonus.component.css']
 })
 export class BonusComponent implements OnInit {
-
   constructor() { }
 
+
+
   ngOnInit(): void {
+
+
   }
+
 
 }

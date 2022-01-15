@@ -1,5 +1,4 @@
 <div class="mainContainer">
-
     <div class="registracionForm" [ngSwitch]='viewMode'>
 
         <div class="formDiv" *ngSwitchCase="'showProductForm'">
@@ -137,22 +136,22 @@
             <h5 class="title">Search
             </h5>
             <form class="form" (ngSubmit)="searchItems()" [formGroup]="searchForm">
-                <div >
+                <div>
                     <input type="text" class="form-control" formControlName="distributorID"
                         placeholder="Distributor ID">
                 </div>
-                <div >
+                <div>
                     <input type="text" class="form-control" formControlName="productName" placeholder="Product Name">
                 </div>
 
 
                 <div>
-                <mat-form-field appearance="fill">
-                    <mat-label>Choose A Date</mat-label>
-                    <input matInput [matDatepicker]="picker" formControlName="salesDate">
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Choose A Date</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="salesDate">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
                 </div>
                 <button class="addBtn" mat-raised-button color="primary">Search</button>
 
@@ -171,3 +170,4 @@
 
 
 </div>
+

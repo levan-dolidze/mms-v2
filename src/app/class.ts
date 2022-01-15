@@ -13,3 +13,8 @@ export class contactType {
         return  this.isHiddenPhone=!this.isHiddenPhone
     }
 }
+
+
+export class Person{
+    name:string
+}

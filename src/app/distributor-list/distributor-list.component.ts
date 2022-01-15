@@ -1,4 +1,6 @@
+import { BonusComponent } from './../bonus/bonus.component';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-distributor-list',
@@ -8,8 +10,14 @@ import { Component, OnInit } from '@angular/core';
 export class DistributorListComponent implements OnInit {
 
   constructor() { }
+  numb: any;
 
   ngOnInit(): void {
+
   }
+
+
+
+
 
 }
