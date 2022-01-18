@@ -1,8 +1,8 @@
 /* sale component add-new-product component */
 .mainContainer{
-    width: 100%;
     display: flex;
-    height: 100%;
+    justify-content: center;
+    
 
 }
 .registracionForm,.searchDiv{
@@ -11,13 +11,38 @@
 
 }
 .searchDiv div{
-margin-bottom: 20px;
+ margin-bottom: 20px;
 }
+
+.registracionFormCont{
+    width: 20%;
+    height: 100%;
+    margin-top: 80px;
+    /* z-index: 1; */
+}
+.registracionForm{
+    position: fixed;
+   height: 100%;
+   /* width: 20%; */
+}
+.searchDivCont{
+    width: 20%;
+    float: right;
+    height: 100%;
+    margin-top: 80px;
+}
+.searchDiv{
+    /* width: 20%; */
+    float: right;
+    position: fixed;
+    height: 100%;
+}
+
+
 .formDiv{
   text-align: center;
   padding: 30px;
-  width: 300px;
-
+ 
 }
 .form{
     margin-top: 20px;
@@ -39,8 +64,9 @@ margin-bottom: 20px;
 }
 
 .TruncatedForm{
-   
-    padding: 30px 0px 0px 0px;
+ 
+    margin: 30px 0px 0px 0px;
+    
 }
 .closeFormWindow{
     float:right;
@@ -50,37 +76,23 @@ margin-bottom: 20px;
 
 
 .listDiv{
-    width: 100%;
-    overflow: scroll;
-
-   
-}
-.productsDiv{
-    display: flex;
-    margin: 0 auto;
-    width: 70%;
-    height: 70px;
-    background-color:white;
-    box-shadow: 0 1px 3px rgba(192, 185, 185, 0.12), 0 1px 2px rgba(173, 138, 138, 0.24);
-    border-radius: 5px;
-    margin-top: 10px;
-
+   /* width: 100%; */
+   margin: 0 auto;
+   margin-top: 80px;
 }
 
 
 
 .productsDiv{
     width: 95%;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
-    position: relative;
     height: 110px;
     margin-top: 20px;
     align-items: center;
     background: linear-gradient(to top,white 0%,white   50%,#F2F3F5 0%,#F2F3F5  100%);
 
-
- 
 }
 /* .productsDiv:hover{
     background: linear-gradient(to top,white 0%,white   50%,#edf1fc 0%,#edf1fc 100%);
@@ -116,14 +128,6 @@ align-items: center;
 
 
 
-
-
-/* sale component */
-.productNameSpan{
-    display: flex;
-    width: 50%;
-}
-
 /* signup */
 .signUpForm{
     width: 80%;
@@ -157,3 +161,18 @@ align-items: center;
   .contactTypes{
       margin-top: 10px;
   }
+
+
+.truncateSearch{
+    width: 2.5%;
+    /* float: right; */
+    /* height: 100%;
+    margin-top: 80px; */
+   
+
+}
+
+.rotateArrow{
+  transform: rotate(180deg);
+  padding: 0px 15px;
+}

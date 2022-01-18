@@ -1,10 +1,11 @@
 import { DatePipe } from '@angular/common';
-import { FormGroup, FormControl, AbstractFormGroupDirective } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { salesModel } from './../models/salesModel';
 import { Subscription } from 'rxjs';
 import { AddNewProductModule } from './../add-new-product/add-new-product.module';
 import { HttpServicesService } from './../services/http-services.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+
 
 @Component({
   selector: 'app-sales',
@@ -23,15 +24,19 @@ export class SalesComponent implements OnInit, OnDestroy {
   nameInput: string;
   codeInput: string;
   notData: boolean = true;
+  size = 3
+  count = 0
 
-
+  searchIsShow = false;
+  addSalesShow = false;
   constructor(private httpservice: HttpServicesService, private pipe: DatePipe) { }
 
   ngOnInit(): void {
+    this.infiniteScroll()
     this.createFormInstance();
     this.createSearchFormInstance();
     this.returnProductNameAndCode();
-    this.returnSoldProducts();
+    this.returnTruncatedSoldProducts(this.returnSize);
 
 
   }
@@ -176,18 +181,33 @@ export class SalesComponent implements OnInit, OnDestroy {
 
   };
 
+
+
   addSoldProductPost(newSoldProduct: any) {
     this.soldProductDist = this.httpservice.addSoldProductPost(newSoldProduct).subscribe((response) => {
       alert('sold product added');
-      this.returnSoldProducts();
+      // this.returnSoldProducts(this.returnSize);
 
     });
   };
-  returnSoldProducts() {
-    this.httpservice.getSoldProducts().subscribe((response) => {
-      this.soldProducts = response;
-    })
+
+
+  get returnSize() {
+    this.size += 3;
+    return this.size
+
   }
+  returnTruncatedSoldProducts(size: any) {
+    this.httpservice.getSoldProducts().subscribe((response) => {
+      let truncatedProducts = [];
+      for (let index = 0; index < size; index++) {
+        if (response[index]) {
+          truncatedProducts.push(response[index])
+        };
+      };
+      this.soldProducts = truncatedProducts;
+    });
+  };
 
   returnProductNameAndCode() {
     this.productNameAndCodeDist = this.httpservice.getProducts().subscribe((response) => {
@@ -212,7 +232,7 @@ export class SalesComponent implements OnInit, OnDestroy {
       }
       this.disorderedArr(index, min, array)
     }
-    return array
+    return array;
 
   }
 
@@ -278,11 +298,29 @@ export class SalesComponent implements OnInit, OnDestroy {
   returnSoldProductList(soldProducts: any) {
     return soldProducts;
   };
+
+
+
+
+  infiniteScroll() {
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY + window.innerHeight > document.documentElement.scrollHeight) {
+        this.returnTruncatedSoldProducts(this.returnSize)
+      }
+    })
+  }
+
+
   ngOnDestroy() {
     (this.productNameAndCodeDist) ? this.productNameAndCodeDist.unsubscribe() : false;
     (this.soldProductDist) ? this.soldProductDist.unsubscribe() : false;
 
   };
+
+
 };
+
+
 
 

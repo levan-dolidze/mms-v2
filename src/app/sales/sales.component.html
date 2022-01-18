@@ -1,82 +1,82 @@
 <div class="mainContainer">
-    <div class="registracionForm" [ngSwitch]='viewMode'>
+    <div (click)="addSalesShow=!addSalesShow" class="registracionFormCont">
+        <div class="registracionForm" [ngSwitch]='viewMode'>
 
-        <div class="formDiv" *ngSwitchCase="'showProductForm'">
-            <mat-icon (click)="viewMode='hideProductForm'" class="closeFormWindow">
-                keyboard_arrow_left</mat-icon>
+            <div class="formDiv" *ngSwitchCase="'showProductForm'">
+                <mat-icon [class.rotateArrow]="addSalesShow" class="closeFormWindow">
+                    keyboard_arrow_left</mat-icon>
 
-            <h5 class="title">Add Your Sales
-            </h5>
+                <h5 [hidden]="addSalesShow" class="title">Add Your Sales
+                </h5>
 
-            <form (ngSubmit)="addSoldProduct()" class="form" [formGroup]="soldProductForm">
-                <div>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Distributor ID</mat-label>
-                        <input matInput formControlName="distributorID">
-                    </mat-form-field>
-                </div>
-                <div>
+                <form [hidden]="addSalesShow" (ngSubmit)="addSoldProduct()" class="form" [formGroup]="soldProductForm">
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Distributor ID</mat-label>
+                            <input matInput formControlName="distributorID">
+                        </mat-form-field>
+                    </div>
+                    <div>
 
-                    <mat-form-field appearance="fill">
-                        <mat-label>Choose a Sale date</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="saleDate">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                </div>
-
-
-                <span class="productNameSpan">
-                    <mat-form-field appearance="fill">
-                        <mat-label>Product Names </mat-label>
-                        <mat-select (selectionChange)="inputName($event)">
-                            <mat-option *ngFor='let names of returnSortedProductNameList(productNamesAndCodes)'
-                                [value]="names.productName">
-                                {{names.productName}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                    <mat-form-field appearance="fill">
-                        <mat-label>Product Codes </mat-label>
-                        <mat-select (selectionChange)="inputCode($event)">
-                            <mat-option *ngFor='let codes of returnSortedProductCodeList(productNamesAndCodes)'
-                                [value]="codes.id">
-                                {{codes.productCode}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Choose a Sale date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="saleDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
 
 
 
-                </span>
+
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Product Names </mat-label>
+                            <mat-select (selectionChange)="inputName($event)">
+                                <mat-option *ngFor='let names of returnSortedProductNameList(productNamesAndCodes)'
+                                    [value]="names.productName">
+                                    {{names.productName}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Product Codes </mat-label>
+                            <mat-select (selectionChange)="inputCode($event)">
+                                <mat-option *ngFor='let codes of returnSortedProductCodeList(productNamesAndCodes)'
+                                    [value]="codes.id">
+                                    {{codes.productCode}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Quantity</mat-label>
+                            <input matInput formControlName="soldProductQuantity">
+                        </mat-form-field>
+                    </div>
+
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>unit price</mat-label>
+                            <input matInput formControlName="soldProductUnitPrice">
+                        </mat-form-field>
+                    </div>
+                    <button class="addBtn" mat-raised-button color="primary">Add Sales</button>
+
+                </form>
+            </div>
 
 
-                <div>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Quantity</mat-label>
-                        <input matInput formControlName="soldProductQuantity">
-                    </mat-form-field>
-                </div>
+            <!-- <div class="TruncatedForm" *ngSwitchCase="'hideProductForm'">
+                <mat-icon class="openFormWindow" (click)="viewMode='showProductForm'"> keyboard_arrow_right</mat-icon>
+            </div> -->
 
-                <div>
-                    <mat-form-field appearance="fill">
-                        <mat-label>unit price</mat-label>
-                        <input matInput formControlName="soldProductUnitPrice">
-                    </mat-form-field>
-                </div>
-                <button class="addBtn" mat-raised-button color="primary">Add Sales</button>
-
-            </form>
         </div>
-
-
-        <div class="TruncatedForm" *ngSwitchCase="'hideProductForm'">
-            <mat-icon class="openFormWindow" (click)="viewMode='showProductForm'"> keyboard_arrow_right</mat-icon>
-        </div>
-
     </div>
-
 
 
     <div class="listDiv">
@@ -127,47 +127,49 @@
 
     </div>
 
+    <div class='searchDivCont' [class.truncateSearch]="searchIsShow">
+        <div class='searchDiv'>
 
-    <div class='searchDiv' [ngSwitch]="viewModeSearch">
-        <div class="formDiv" *ngSwitchCase="'showSearchForm'">
-            <mat-icon (click)="viewModeSearch='hideSearchtForm'" class="closeSearchWindow">
-                keyboard_arrow_right</mat-icon>
+            <div class="formDiv">
+                <mat-icon (click)="searchIsShow=!searchIsShow" class="closeSearchWindow"
+                    [class.rotateArrow]="searchIsShow">
+                    keyboard_arrow_right</mat-icon>
 
-            <h5 class="title">Search
-            </h5>
-            <form class="form" (ngSubmit)="searchItems()" [formGroup]="searchForm">
-                <div>
-                    <input type="text" class="form-control" formControlName="distributorID"
-                        placeholder="Distributor ID">
-                </div>
-                <div>
-                    <input type="text" class="form-control" formControlName="productName" placeholder="Product Name">
-                </div>
-
-
-                <div>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Choose A Date</mat-label>
-                        <input matInput [matDatepicker]="picker" formControlName="salesDate">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
-                </div>
-                <button class="addBtn" mat-raised-button color="primary">Search</button>
+                <h5 [hidden]="searchIsShow" class="title">Search
+                </h5>
+                <form [hidden]="searchIsShow" class="form" (ngSubmit)="searchItems()" [formGroup]="searchForm">
+                    <div>
+                        <input type="text" class="form-control" formControlName="distributorID"
+                            placeholder="Distributor ID">
+                    </div>
+                    <div>
+                        <input type="text" class="form-control" formControlName="productName"
+                            placeholder="Product Name">
+                    </div>
 
 
-            </form>
+                    <div>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Choose A Date</mat-label>
+                            <input matInput [matDatepicker]="picker" formControlName="salesDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <button class="addBtn" mat-raised-button color="primary">Search</button>
 
 
-        </div>
+                </form>
 
 
-        <div class="TruncatedForm" *ngSwitchCase="'hideSearchtForm'">
-            <mat-icon class="openFormWindow" (click)="viewModeSearch='showSearchForm'">search</mat-icon>
+            </div>
+
+            <!-- 
+            <div class="TruncatedForm" *ngSwitchCase="'hideSearchtForm'">
+                <mat-icon class="openFormWindow" (click)="viewModeSearch='showSearchForm'">search</mat-icon>
+            </div> -->
         </div>
     </div>
 
 
-
 </div>
-

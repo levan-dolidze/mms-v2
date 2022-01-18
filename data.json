@@ -79,54 +79,245 @@
       "id": 4
     },
     {
-      "distributorID": "45",
+      "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
-      "soldProductCode": 3,
+      "soldProductCode": 2,
       "soldProductName": "4",
-      "soldProductQuantity": "4",
-      "soldProductUnitPrice": "5",
-      "soldProductTotalPrice": 20,
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
       "id": 5
-    },
+    }
+    ,
     {
-      "distributorID": "45",
+      "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
-      "soldProductCode": 3,
+      "soldProductCode": 2,
       "soldProductName": "4",
-      "soldProductQuantity": "4",
-      "soldProductUnitPrice": "5",
-      "soldProductTotalPrice": 20,
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
       "id": 6
-    },
+    }
+    ,
     {
-      "distributorID": "45",
+      "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
-      "soldProductCode": 3,
+      "soldProductCode": 2,
       "soldProductName": "4",
-      "soldProductQuantity": "4",
-      "soldProductUnitPrice": "5",
-      "soldProductTotalPrice": 20,
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
       "id": 7
-    },
+    }
+    ,
     {
-      "distributorID": "45",
+      "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
-      "soldProductCode": 3,
+      "soldProductCode": 2,
       "soldProductName": "4",
-      "soldProductQuantity": "4",
-      "soldProductUnitPrice": "5",
-      "soldProductTotalPrice": 20,
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
       "id": 8
-    },
+    }
+    ,
     {
-      "distributorID": "45",
+      "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
-      "soldProductCode": 3,
+      "soldProductCode": 2,
       "soldProductName": "4",
-      "soldProductQuantity": "4",
-      "soldProductUnitPrice": "5",
-      "soldProductTotalPrice": 20,
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
       "id": 9
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 10
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 11
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 12
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 13
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 14
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 15
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 16
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 17
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 18
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 19
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 20
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 21
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 22
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 23
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 24
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 25
+    }
+    ,
+    {
+      "distributorID": "21",
+      "saleDate": "2022-01-03T20:00:00.000Z",
+      "soldProductCode": 2,
+      "soldProductName": "4",
+      "soldProductQuantity": "2",
+      "soldProductUnitPrice": "2",
+      "soldProductTotalPrice": 4,
+      "id": 26
     }
   ],
   "distributorList": [

@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  addNewProductDB:"http://localhost:3000/addNewProductDB",
-  soldProductsDB:"http://localhost:3000/soldProductsDB",
-  distributorListDB:"http://localhost:3000/distributorList",
+  addNewProductDB: "http://localhost:3000/addNewProductDB",
+  soldProductsDB: "http://localhost:3000/soldProductsDB",
+  distributorListDB: "http://localhost:3000/distributorList",
 
-  
+
 };
 
 /*
