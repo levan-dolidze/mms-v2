@@ -11,7 +11,6 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./add-new-product.component.css', '../common-css.css']
 })
 export class AddNewProductComponent implements OnInit, OnDestroy {
-  viewMode = "showProductForm";
   newProductForm: FormGroup;
   newProduct: Array<newProductsModel> = [];
   products: Array<AddNewProductModule> = [];

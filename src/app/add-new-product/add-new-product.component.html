@@ -1,10 +1,9 @@
 <div class="mainContainer">
     <div class="registracionFormCont" >
-    <div class="registracionForm" [ngSwitch]='viewMode'>
+    <div class="registracionForm" >
 
-        <div class="formDiv" *ngSwitchCase="'showProductForm'">
-            <mat-icon (click)="viewMode='hideProductForm'" class="closeFormWindow">
-                keyboard_arrow_left</mat-icon>
+        <div class="formDiv" >
+        
 
             <h5 class="title">Add New Product
             </h5>
@@ -37,16 +36,14 @@
         </div>
 
 
-        <div class="TruncatedForm" *ngSwitchCase="'hideProductForm'">
-            <mat-icon class="openFormWindow" (click)="viewMode='showProductForm'"> keyboard_arrow_right</mat-icon>
-        </div>
+ 
 
     </div>
 </div>
 
 
 
-    <div  *ngIf='returnProductsForView(products)' class="listDiv">
+    <div  *ngIf='returnProductsForView(products)' class="listDivAddProduct">
         <div class="productsDiv" *ngFor='let product of returnProductsForView(products)'>
             <div><span>
                     <h6 class="innerTitle">ID</h6>

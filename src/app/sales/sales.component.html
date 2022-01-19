@@ -1,9 +1,9 @@
 <div class="mainContainer">
-    <div (click)="addSalesShow=!addSalesShow" class="registracionFormCont">
-        <div class="registracionForm" [ngSwitch]='viewMode'>
-
-            <div class="formDiv" *ngSwitchCase="'showProductForm'">
-                <mat-icon [class.rotateArrow]="addSalesShow" class="closeFormWindow">
+    <div class='registracionFormCont' [class.truncateAddSale]='addSalesShow'>
+        <div class="registracionForm" [class.truncateAddSale]='addSalesShow'>
+            <div class="formDiv">
+                <mat-icon (click)="increaseListDivWidth=!increaseListDivWidth" (click)="addSalesShow=!addSalesShow"
+                    [class.rotateAddSaleArrow]="addSalesShow" (click)="getListDivMaxWidth()" class="closeFormWindow">
                     keyboard_arrow_left</mat-icon>
 
                 <h5 [hidden]="addSalesShow" class="title">Add Your Sales
@@ -20,9 +20,9 @@
 
                         <mat-form-field appearance="fill">
                             <mat-label>Choose a Sale date</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="saleDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
+                            <input matInput [matDatepicker]="addSalePicker" formControlName="saleDate">
+                            <mat-datepicker-toggle matSuffix [for]="addSalePicker"></mat-datepicker-toggle>
+                            <mat-datepicker #addSalePicker></mat-datepicker>
                         </mat-form-field>
                     </div>
 
@@ -70,17 +70,12 @@
                 </form>
             </div>
 
-
-            <!-- <div class="TruncatedForm" *ngSwitchCase="'hideProductForm'">
-                <mat-icon class="openFormWindow" (click)="viewMode='showProductForm'"> keyboard_arrow_right</mat-icon>
-            </div> -->
-
         </div>
     </div>
 
 
-    <div class="listDiv">
 
+    <div class="listDiv" [class.listDivMaxWidth]="listDivMaxWidth" [class.increaseListDivWidth]="increaseListDivWidth">
         <h6 class='notDataTitle' [hidden]="notData">ჩანაწერი არ მოიძებნა</h6>
         <div class="productsDiv" *ngFor='let products of returnSoldProductList(soldProducts)'>
             <div><span>
@@ -127,12 +122,12 @@
 
     </div>
 
-    <div class='searchDivCont' [class.truncateSearch]="searchIsShow">
-        <div class='searchDiv'>
 
+    <div class='searchDivCont' [class.truncateSearch]='searchIsShow'>
+        <div class='searchDiv '>
             <div class="formDiv">
-                <mat-icon (click)="searchIsShow=!searchIsShow" class="closeSearchWindow"
-                    [class.rotateArrow]="searchIsShow">
+                <mat-icon (click)="increaseListDivWidth=!increaseListDivWidth" (click)="searchIsShow=!searchIsShow"
+                    [class.rotateSearchArrow]="searchIsShow" (click)="getListDivMaxWidth()" class="closeSearchWindow">
                     keyboard_arrow_right</mat-icon>
 
                 <h5 [hidden]="searchIsShow" class="title">Search
@@ -151,23 +146,18 @@
                     <div>
                         <mat-form-field appearance="fill">
                             <mat-label>Choose A Date</mat-label>
-                            <input matInput [matDatepicker]="picker" formControlName="salesDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
+                            <input matInput [matDatepicker]="searchPicker" formControlName="salesDate">
+                            <mat-datepicker-toggle matSuffix [for]="searchPicker"></mat-datepicker-toggle>
+                            <mat-datepicker #searchPicker></mat-datepicker>
                         </mat-form-field>
+
                     </div>
                     <button class="addBtn" mat-raised-button color="primary">Search</button>
 
 
                 </form>
-
-
             </div>
 
-            <!-- 
-            <div class="TruncatedForm" *ngSwitchCase="'hideSearchtForm'">
-                <mat-icon class="openFormWindow" (click)="viewModeSearch='showSearchForm'">search</mat-icon>
-            </div> -->
         </div>
     </div>
 

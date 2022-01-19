@@ -35,6 +35,12 @@
       "productName": "4",
       "productUnitPrice": "1",
       "id": 6
+    },
+    {
+      "productCode": "009",
+      "productName": "ბალი",
+      "productUnitPrice": "5",
+      "id": 7
     }
   ],
   "soldProductsDB": [
@@ -87,8 +93,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 5
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -98,8 +103,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 6
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -109,8 +113,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 7
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -120,8 +123,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 8
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -131,8 +133,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 9
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -142,8 +143,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 10
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -153,8 +153,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 11
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -164,8 +163,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 12
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -175,8 +173,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 13
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -186,8 +183,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 14
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -197,8 +193,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 15
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -208,8 +203,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 16
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -219,8 +213,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 17
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -230,8 +223,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 18
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -241,8 +233,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 19
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -252,8 +243,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 20
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -263,8 +253,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 21
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -274,8 +263,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 22
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -285,8 +273,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 23
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -296,8 +283,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 24
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -307,8 +293,7 @@
       "soldProductUnitPrice": "2",
       "soldProductTotalPrice": 4,
       "id": 25
-    }
-    ,
+    },
     {
       "distributorID": "21",
       "saleDate": "2022-01-03T20:00:00.000Z",
@@ -322,96 +307,26 @@
   ],
   "distributorList": [
     {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
+      "name": "ლევან",
+      "sureName": "დოლიძე",
+      "birthDay": "2022-01-03T20:00:00.000Z",
       "gender": "Male",
       "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
+      "docSeries": "15155",
+      "docNO": "ma14521",
+      "docDateOfIssue": "2022-01-02T20:00:00.000Z",
+      "docDateOfExpiry": "2022-01-27T20:00:00.000Z",
+      "personalNo": "01022012447",
+      "phone": "2221145",
+      "mobile": "591880290",
       "email": null,
       "fax": null,
-      "issuingAuthority": null,
+      "issuingAuthority": "იუსტიციის სახლი",
       "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [
-        [
-          1,
-          2,
-          3
-        ],
-        [
-          4,
-          5,
-          6
-        ],
-        [
-          7,
-          8,
-          9
-        ],
-        [
-          10,
-          11,
-          12
-        ],
-        [
-          13,
-          14,
-          15
-        ]
-      ],
+      "address": "ერისთავის ქ 3 ",
+      "protegeIds": [{"id":1,"protege":[]},{"id":2,"protege":[]},{"id":3,"protege":[]}],
       "recomendatorPersonalNo": null,
       "id": 1
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": null,
-      "recomendatorPersonalNo": null,
-      "id": 2
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": null,
-      "recomendatorPersonalNo": null,
-      "id": 3
     }
   ]
 }

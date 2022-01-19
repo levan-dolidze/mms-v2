@@ -24,11 +24,13 @@ export class SalesComponent implements OnInit, OnDestroy {
   nameInput: string;
   codeInput: string;
   notData: boolean = true;
-  size = 3
-  count = 0
+  size:number = 3
 
-  searchIsShow = false;
-  addSalesShow = false;
+
+  searchIsShow: boolean = false;
+  addSalesShow: boolean = false;
+  increaseListDivWidth: boolean = false;
+  listDivMaxWidth: boolean = false;
   constructor(private httpservice: HttpServicesService, private pipe: DatePipe) { }
 
   ngOnInit(): void {
@@ -41,11 +43,21 @@ export class SalesComponent implements OnInit, OnDestroy {
 
   }
 
+  getListDivMaxWidth() {
+    if (this.searchIsShow && this.addSalesShow) {
+      this.listDivMaxWidth = !this.listDivMaxWidth
+    }
+    else {
+      this.listDivMaxWidth = false;
+    }
+  }
+
   createSearchFormInstance() {
     this.searchForm = new FormGroup({
       productName: new FormControl(null),
       salesDate: new FormControl(null),
-      distributorID: new FormControl(null)
+      distributorID: new FormControl(null),
+     
     })
   }
   // searchItems() {
@@ -320,7 +332,5 @@ export class SalesComponent implements OnInit, OnDestroy {
 
 
 };
-
-
 
 

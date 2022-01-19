@@ -455,6 +455,8 @@ const array2 = [
 
 ];
 
+
+
 function parseData(data: any) {
   let count = 0;
   for (let index = 0; index < data.length; index++) {
@@ -468,38 +470,68 @@ function parseData(data: any) {
 }
 parseData(array2)
 
+const array3 = [{ protege: [{ protege: [{ protege: [] }] }] }];
 
+function gg(arr:any) {
 
-const arr = [
-  { id: 0, children: [] },
-  {
-    id: 1, children: [
-      { id: 2, children: [] }, {
-        id: 3, children:
-          [{
-            id: 4, children:
-              [
-                {
-                  id: 5, children: []
-                }]
-          }
-          ]
-      }]
-  }];
-function assignDepth(arr: any, depth = 0, index = 0): any {
-  if (index > arr.length) {
+  
 
-    arr[index].depth = depth
-    if (arr[index].protege.length) {
-      return assignDepth(arr[index].protege, depth + 1, 0)
-    }
-    return assignDepth(arr, depth, index + 1)
-  };
-  return;
 }
 
-assignDepth(array2);
-console.log(JSON.stringify(array2, undefined, 5))
+for (let index = 0; index < array3.length; index++) {
+  let count = 0;
+  let ind = index
+  if (array3[index].protege) {
+    count++
+  }
+
+  for (let i = 0; i < array3[ind].protege.length; i++) {
+    if (array3[ind].protege[i]) {
+      count++
+    }
+    let ind2 = i;
+    for (let j = 0; j < array3[ind2].protege.length; j++) {
+      if (array3[ind2].protege[j]) {
+        count++
+      }
+
+    }
+  }
+
+  console.log(count)
+
+}
+
+// const arr = [
+//   { id: 0, children: [] },
+//   {
+//     id: 1, children: [
+//       { id: 2, children: [] }, {
+//         id: 3, children:
+//           [{
+//             id: 4, children:
+//               [
+//                 {
+//                   id: 5, children: []
+//                 }]
+//           }
+//           ]
+//       }]
+//   }];
+// function assignDepth(arr: any, depth = 0, index = 0): any {
+//   if (index > arr.length) {
+
+//     arr[index].depth = depth
+//     if (arr[index].protege.length) {
+//       return assignDepth(arr[index].protege, depth + 1, 0)
+//     }
+//     return assignDepth(arr, depth, index + 1)
+//   };
+//   return;
+// }
+
+// assignDepth(array2);
+// console.log(JSON.stringify(array2, undefined, 5))
 
 
 
