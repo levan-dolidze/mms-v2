@@ -1,3 +1,4 @@
+import { ProtegeModel } from './../models/protegeModel';
 import { contactType } from './../class';
 import { HttpServicesService } from './../services/http-services.service';
 import { signUpModel } from './../models/signUpModel';
@@ -22,14 +23,14 @@ export class SignUpComponent implements OnInit, OnDestroy {
   isHiddenEmail = false;
   isHiddenFax = false;
   IsIdentityShow = true;
+  newProtege: FormGroup;
 
 
   ngOnInit(): void {
     this.createSignUpFormInstance();
     this.setDefaultValues();
     this.returnDistributorList();
-    // this.filtredIdNumbers();
-
+    this.filterDistributors();
   }
 
   setDefaultValues() {
@@ -64,28 +65,49 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
 
-
-
   returnDistributorList() {
     this.distributorListDist = this.httpservice.getDistributors().subscribe((response) => {
       this.distributorList = response;
-    })
-  };
-  returnSortedIds() {
-    const sortedIds = this.distributorList.sort((a: any, b: any) => {
-      if (a.id > b.id) {
-        return 1
-      }
-      if (a.id < b.id) {
-        return -1
-      }
-      else {
-        return 0
-      };
 
-    });
-    return sortedIds;
+    })
+    return this.distributorList
   };
+
+  filterDistributors() {
+     this.httpservice.getDistributors().subscribe((res)=>{
+         let fil =res
+         const filter = fil.filter((data) => {
+          return data.protegeIds.length < 3
+        });
+        this.distributorList = filter
+     })
+    
+  }
+
+  disorderedRecommendatorArr(a: any, b: any, arr: any) {
+    let temp = arr[a];
+    arr[a] = arr[b];
+    arr[b] = temp
+
+  };
+
+  //used selection sort
+  sortRecommendators(array: any) {
+    for (let index = 0; index < array.length - 1; index++) {
+      let min = index;
+      for (let i = min + 1; i < array.length; i++) {
+        if (array[min].id > array[i].id) min = i;
+
+      }
+      this.disorderedRecommendatorArr(index, min, array)
+    }
+    return array
+  }
+  returnSortedIds() {
+    return this.sortRecommendators(this.distributorList);
+  };
+
+
   showIdentity() {
     return { identity: this.isRecommenderShow = !this.isRecommenderShow }
   };
@@ -121,21 +143,29 @@ export class SignUpComponent implements OnInit, OnDestroy {
     const fax = (this.isHiddenPhone) ? this.signUpForm.get('email')?.value : null
     return fax;
   };
+
+
   selectedId(selectedIds: any) {
-    const arr = []
 
+    // let newFormcontrol = new FormControl(null);
+
+    // (<FormArray>this.signUpForm.get('protegeIds')).push(newFormcontrol);
+    // return (this.signUpForm.get('protegeIds') as FormArray).controls;
   };
 
-  addRecommendator() {
-    let newFormcontrol = new FormControl(null);
-    newFormcontrol = this.signUpForm.get('recomendatorPersonalNo')?.value;
-    (<FormArray>this.signUpForm.get('protegeIds')).push(newFormcontrol);
-    return (this.signUpForm.get('protegeIds') as FormArray).controls
-  };
+
+
 
 
   signUp() {
-    // this.addRecommendator();
+ 
+    this.addNewDistributor();
+    alert('distributor added');
+   
+  };
+
+  addNewDistributor() {
+
     const newDistributor: signUpModel = {
       name: this.signUpForm.get('name')?.value,
       sureName: this.signUpForm.get('sureName')?.value,
@@ -155,64 +185,62 @@ export class SignUpComponent implements OnInit, OnDestroy {
       issuingAuthority: this.signUpForm.get('issuingAuthority')?.value,
       addressType: this.signUpForm.get('addressType')?.value,
       address: this.signUpForm.get('address')?.value,
-      protegeIds: this.signUpForm.get('recomendatorPersonalNo')?.value,
-      recomendatorPersonalNo: this.signUpForm.get('recomendatorPersonalNo')?.value
+      protegeIds: []
+
 
     };
+    this.distributorListDist = this.httpservice.addDistributor(newDistributor).subscribe((res) => {
 
-    this.distributorListDist = this.httpservice.addDistributor(newDistributor).subscribe((respinse) => {
-      alert('distributor added');
-      this.getRegistrDistrIDnumber();
+      this.editRecommendatorList();
       this.returnDistributorList();
 
     });
-
   };
 
-  // filtredIdNumbers(): any {
-  //   const filtredLength = this.distributorList.filter((item) => {
-  //     return item.protegeIds.length < 3;
 
-  //   });
-  //   this.getRecommendatorId(filtredLength);
-  // };
-  // getRecommendatorId(protegeIdArray: any) {
-  //   const maped = protegeIdArray.map((element: any) => {
-  //     return element.id;
-  //   })
-  //   this.paint = maped;
-  // }
-  getRegistrDistrIDnumber(): any {
-
-    const find = this.distributorList.find((item) => {
-      return item.id === this.signUpForm.get('recomendatorPersonalNo')?.value;
-    });
-
-    if (find) {
-
-      this.httpservice.getDistributors().subscribe((response) => {
-        this.distributorList = response;
-
-        const findId = this.distributorList.map((item) => {
-          return item.id
+  editRecommendatorList() {
+    if (!this.isRecommenderShow) {
+      return
+    } else {
+      this.httpservice.getDistributors().subscribe((res) => {
+        let distrList = res
+        let selectedId = this.signUpForm.get('recomendatorPersonalNo')?.value;
+        const findId = distrList.find((item: any) => {
+          return item.id === selectedId
         });
-        let lastId = findId.pop();
-        console.log(find)
-        find.protegeIds.push(lastId);
-        this.httpservice.editDistributorProtegeInfo(find).subscribe(() => {
+        if (findId) {
 
+          const lastId = distrList.map((item) => {
+            return item.id
+          });
 
-        });
+          let lastDistr = lastId.pop();
+          let newProtege: ProtegeModel = {
+            newProtegeObj: {
+              id: lastDistr,
+              protege: []
+            }
+          }
+          findId.protegeIds.push(newProtege)
+          this.httpservice.editDistributorProtegeInfo(findId).subscribe((response) => {
+            // this.returnDistributorList();
+            this.filterDistributors();
+          })
+        }
+        else {
+          return
+        };
 
       });
+    };
 
 
-    }
-    else {
-      return
-    }
+
+
+
 
   };
+
 
 
 
@@ -472,35 +500,31 @@ parseData(array2)
 
 const array3 = [{ protege: [{ protege: [{ protege: [] }] }] }];
 
-function gg(arr:any) {
 
-  
 
-}
+// for (let index = 0; index < array3.length; index++) {
+//   let count = 0;
+//   let ind = index
+//   if (array3[index].protege) {
+//     count++
+//   }
 
-for (let index = 0; index < array3.length; index++) {
-  let count = 0;
-  let ind = index
-  if (array3[index].protege) {
-    count++
-  }
+//   for (let i = 0; i < array3[ind].protege.length; i++) {
+//     if (array3[ind].protege[i]) {
+//       count++
+//     }
+//     let ind2 = i;
+//     for (let j = 0; j < array3[ind2].protege.length; j++) {
+//       if (array3[ind2].protege[j]) {
+//         count++
+//       }
 
-  for (let i = 0; i < array3[ind].protege.length; i++) {
-    if (array3[ind].protege[i]) {
-      count++
-    }
-    let ind2 = i;
-    for (let j = 0; j < array3[ind2].protege.length; j++) {
-      if (array3[ind2].protege[j]) {
-        count++
-      }
+//     }
+//   }
 
-    }
-  }
+//   console.log(count)
 
-  console.log(count)
-
-}
+// }
 
 // const arr = [
 //   { id: 0, children: [] },

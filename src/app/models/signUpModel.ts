@@ -19,11 +19,11 @@ export class signUpModel {
     addressType: boolean;
     address: string;
     protegeIds:Array<any>=[];
-    recomendatorPersonalNo:string|number;
+  
 
 
 
-    constructor(id: number | string, name: string, sureName: string, birthDay: string, gender: string, image: string, docType: string, docSeries: string, docNO: string, docDateOfIssue: string , docDateOfExpiry: string , personalNo: string, issuingAuthority: string, phone: string, mobile: string, email: string, fax: string, addressType: boolean, address: string,protegeIds:Array<any>,recomendatorPersonalNo:string|number
+    constructor(id: number | string, name: string, sureName: string, birthDay: string, gender: string, image: string, docType: string, docSeries: string, docNO: string, docDateOfIssue: string , docDateOfExpiry: string , personalNo: string, issuingAuthority: string, phone: string, mobile: string, email: string, fax: string, addressType: boolean, address: string,protegeIds:Array<any>
         ) {
 
         this.id = id;
@@ -46,7 +46,7 @@ export class signUpModel {
         this.addressType = addressType;
         this.address = address;
         this.protegeIds=protegeIds;
-        this.recomendatorPersonalNo=recomendatorPersonalNo
+      
 
     }
 }

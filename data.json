@@ -307,26 +307,395 @@
   ],
   "distributorList": [
     {
-      "name": "ლევან",
-      "sureName": "დოლიძე",
-      "birthDay": "2022-01-03T20:00:00.000Z",
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
       "gender": "Male",
       "docType": "IDCard",
-      "docSeries": "15155",
-      "docNO": "ma14521",
-      "docDateOfIssue": "2022-01-02T20:00:00.000Z",
-      "docDateOfExpiry": "2022-01-27T20:00:00.000Z",
-      "personalNo": "01022012447",
-      "phone": "2221145",
-      "mobile": "591880290",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
       "email": null,
       "fax": null,
-      "issuingAuthority": "იუსტიციის სახლი",
+      "issuingAuthority": null,
       "addressType": "ActualAddress",
-      "address": "ერისთავის ქ 3 ",
-      "protegeIds": [{"id":1,"protege":[]},{"id":2,"protege":[]},{"id":3,"protege":[]}],
-      "recomendatorPersonalNo": null,
+      "address": null,
+      "protegeIds": [
+        {
+          "newProtegeObj": {
+            "id": 4,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 5,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 6,
+            "protege": []
+          }
+        }
+      ],
       "id": 1
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [
+        {
+          "newProtegeObj": {
+            "id": 7,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 8,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 9,
+            "protege": []
+          }
+        }
+      ],
+      "id": 2
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [
+        {
+          "newProtegeObj": {
+            "id": 10,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 11,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 12,
+            "protege": []
+          }
+        }
+      ],
+      "id": 3
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [
+        {
+          "newProtegeObj": {
+            "id": 13,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 14,
+            "protege": []
+          }
+        },
+        {
+          "newProtegeObj": {
+            "id": 15,
+            "protege": []
+          }
+        }
+      ],
+      "id": 4
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 5
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 6
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 7
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 8
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 9
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 10
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 11
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 12
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 13
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 14
+    },
+    {
+      "name": null,
+      "sureName": null,
+      "birthDay": null,
+      "gender": "Male",
+      "docType": "IDCard",
+      "docSeries": null,
+      "docNO": null,
+      "docDateOfIssue": null,
+      "docDateOfExpiry": null,
+      "personalNo": null,
+      "phone": null,
+      "mobile": null,
+      "email": null,
+      "fax": null,
+      "issuingAuthority": null,
+      "addressType": "ActualAddress",
+      "address": null,
+      "protegeIds": [],
+      "id": 15
     }
   ]
 }

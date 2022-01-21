@@ -143,9 +143,8 @@
 
             <mat-form-field appearance="fill" *ngIf="isRecommenderShow">
                 <mat-label>choose Recommender</mat-label>
-                <mat-select (selectionChange)='selectedId($event)' formControlName="recomendatorPersonalNo"
-                    #recomendatorPersonalNo>
-                    <mat-option *ngFor='let ids of returnSortedIds()' [value]='ids.id'>
+                <mat-select (selectionChange)='selectedId($event)'  formControlName="recomendatorPersonalNo">
+                    <mat-option *ngFor='let ids of returnSortedIds()'[value]='ids.id'>
                         {{ids.id}}
                     </mat-option>
                 </mat-select>
