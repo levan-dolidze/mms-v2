@@ -24,6 +24,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
   isHiddenFax = false;
   IsIdentityShow = true;
   newProtege: FormGroup;
+  level: number = 0
 
 
   ngOnInit(): void {
@@ -31,6 +32,7 @@ export class SignUpComponent implements OnInit, OnDestroy {
     this.setDefaultValues();
     this.returnDistributorList();
     this.filterDistributors();
+
   }
 
   setDefaultValues() {
@@ -57,8 +59,10 @@ export class SignUpComponent implements OnInit, OnDestroy {
       addressType: new FormControl(null),
       address: new FormControl(null),
       hasRecommender: new FormControl(null),
+      recomendatorPersonalNo: new FormControl(null),
       protegeIds: new FormArray([]),
-      recomendatorPersonalNo: new FormControl(null)
+      recommArr: new FormArray([]),
+
 
     });
   };
@@ -74,14 +78,14 @@ export class SignUpComponent implements OnInit, OnDestroy {
   };
 
   filterDistributors() {
-     this.httpservice.getDistributors().subscribe((res)=>{
-         let fil =res
-         const filter = fil.filter((data) => {
-          return data.protegeIds.length < 3
-        });
-        this.distributorList = filter
-     })
-    
+    this.httpservice.getDistributors().subscribe((res) => {
+      let fil = res
+      const filter = fil.filter((data) => {
+        return data.protegeIds.length < 3
+      });
+      this.distributorList = filter
+    })
+
   }
 
   disorderedRecommendatorArr(a: any, b: any, arr: any) {
@@ -147,10 +151,9 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   selectedId(selectedIds: any) {
 
-    // let newFormcontrol = new FormControl(null);
+    //  this.signUpForm.get('recomendatorPersonalNo')?.value
 
-    // (<FormArray>this.signUpForm.get('protegeIds')).push(newFormcontrol);
-    // return (this.signUpForm.get('protegeIds') as FormArray).controls;
+
   };
 
 
@@ -158,11 +161,30 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
 
   signUp() {
- 
+    // let recomm = new FormControl(this.signUpForm.get('recomendatorPersonalNo')?.value);
+    // (<FormArray>this.signUpForm.get('recommArr')).push(recomm);
+    // console.log(this.signUpForm)
     this.addNewDistributor();
+
+
+
+    // return (this.signUpForm.get('recomendatorPersonalNo') as FormArray).controls;
     alert('distributor added');
-   
+
   };
+
+ get returnRecommShow(){
+    if(this.isRecommenderShow){
+      let idsArr =this.returnSortedIds();
+      for (let index = 0; index < idsArr.length; index++) {
+       if(idsArr[index].id==this.signUpForm.get('recomendatorPersonalNo')?.value){
+         return this.signUpForm.get('recomendatorPersonalNo')?.value
+       }
+        
+      }
+    
+    }
+  }
 
   addNewDistributor() {
 
@@ -185,7 +207,8 @@ export class SignUpComponent implements OnInit, OnDestroy {
       issuingAuthority: this.signUpForm.get('issuingAuthority')?.value,
       addressType: this.signUpForm.get('addressType')?.value,
       address: this.signUpForm.get('address')?.value,
-      protegeIds: []
+      protegeIds: [],
+      recommendator:  [this.returnRecommShow]
 
 
     };
@@ -215,16 +238,20 @@ export class SignUpComponent implements OnInit, OnDestroy {
           });
 
           let lastDistr = lastId.pop();
+
           let newProtege: ProtegeModel = {
             newProtegeObj: {
+
               id: lastDistr,
+              level: 0,
               protege: []
             }
           }
           findId.protegeIds.push(newProtege)
           this.httpservice.editDistributorProtegeInfo(findId).subscribe((response) => {
-            // this.returnDistributorList();
             this.filterDistributors();
+            this.deepControl();
+            this.returnRecommShow;
           })
         }
         else {
@@ -241,7 +268,81 @@ export class SignUpComponent implements OnInit, OnDestroy {
 
   };
 
+  deepControl() {
+    this.httpservice.getDistributors().subscribe((data) => {
+      let list = data
+      let selectedId = this.signUpForm.get('recomendatorPersonalNo')?.value;
+      if (this.level > 3) {
+        return
+      } else {
+        const filter = list.filter((item) => {
+          return item.id == selectedId
+        });
+        const lastId = list.map((item) => {
+          return item.id
+        });
 
+        let lastIds = lastId.pop();
+
+
+        for (let index = 0; index < filter.length; index++) {
+
+          let indexone = filter[index].recommendator
+          for (let i = 0; i < indexone.length; i++) {
+            const filt = list.filter((item) => {
+              return item.id == indexone[i]
+            })
+            if (filt.length > 0) {
+              this.level += 1
+            }
+
+            for (let j = 0; j < filt.length; j++) {
+              let newProtege: ProtegeModel = {
+                newProtegeObj: {
+                  id: lastIds,
+                  level: this.level,
+                  protege: []
+                }
+              };
+              console.log(this.level)
+              let protegeLevel1Arr = filt[j].protegeIds[j].newProtegeObj.protege;
+              if (this.level == 1) {
+                protegeLevel1Arr.push(newProtege);
+              }
+              else if (this.level == 2) {
+                for (let index = 0; index < protegeLevel1Arr.length; index++) {
+                  let protegeLevel2Arr = protegeLevel1Arr[index].newProtegeObj.protege
+                  protegeLevel2Arr.push(newProtege);
+                }
+              }
+            
+
+            }
+
+            for (let index = 0; index < filt.length; index++) {
+              let edited = filt[index]
+              this.httpservice.editDistributorProtegeInfo(edited).subscribe((res) => {
+
+              })
+            }
+          }
+
+
+
+        }
+
+      }
+
+
+
+
+
+      //შენახულია ერეი სადაც მოცემულია ერთი ელემენტი c ს რეკომენდატორის id 2  
+
+
+
+    });
+  };
 
 
   ngOnDestroy(): void {

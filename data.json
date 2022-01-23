@@ -327,22 +327,30 @@
       "protegeIds": [
         {
           "newProtegeObj": {
-            "id": 4,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 5,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 6,
-            "protege": []
+            "id": 2,
+            "level": 0,
+            "protege": [
+              {
+                "newProtegeObj": {
+                  "id": 3,
+                  "level": 1,
+                  "protege": [
+                    {
+                      "newProtegeObj": {
+                        "id": 4,
+                        "level": 2,
+                        "protege": []
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
           }
         }
+      ],
+      "recommendator": [
+        null
       ],
       "id": 1
     },
@@ -367,22 +375,21 @@
       "protegeIds": [
         {
           "newProtegeObj": {
-            "id": 7,
+            "id": 3,
+            "level": 0,
             "protege": []
           }
         },
         {
           "newProtegeObj": {
-            "id": 8,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 9,
+            "id": 4,
+            "level": 0,
             "protege": []
           }
         }
+      ],
+      "recommendator": [
+        1
       ],
       "id": 2
     },
@@ -404,25 +411,9 @@
       "issuingAuthority": null,
       "addressType": "ActualAddress",
       "address": null,
-      "protegeIds": [
-        {
-          "newProtegeObj": {
-            "id": 10,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 11,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 12,
-            "protege": []
-          }
-        }
+      "protegeIds": [],
+      "recommendator": [
+        2
       ],
       "id": 3
     },
@@ -444,258 +435,11 @@
       "issuingAuthority": null,
       "addressType": "ActualAddress",
       "address": null,
-      "protegeIds": [
-        {
-          "newProtegeObj": {
-            "id": 13,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 14,
-            "protege": []
-          }
-        },
-        {
-          "newProtegeObj": {
-            "id": 15,
-            "protege": []
-          }
-        }
+      "protegeIds": [],
+      "recommendator": [
+        2
       ],
       "id": 4
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 5
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 6
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 7
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 8
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 9
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 10
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 11
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 12
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 13
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 14
-    },
-    {
-      "name": null,
-      "sureName": null,
-      "birthDay": null,
-      "gender": "Male",
-      "docType": "IDCard",
-      "docSeries": null,
-      "docNO": null,
-      "docDateOfIssue": null,
-      "docDateOfExpiry": null,
-      "personalNo": null,
-      "phone": null,
-      "mobile": null,
-      "email": null,
-      "fax": null,
-      "issuingAuthority": null,
-      "addressType": "ActualAddress",
-      "address": null,
-      "protegeIds": [],
-      "id": 15
     }
   ]
 }
